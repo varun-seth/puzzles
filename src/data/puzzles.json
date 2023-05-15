@@ -1,0 +1,22 @@
+[
+  {
+      "puzzleId": "1",
+      "difficulty": "easy",
+      "category": "discrete-maths",
+      "question": "What is 2+2?",
+      "hint": "It's not 5.",
+      "answer": "4",
+      "solution": "2+2 equals 4\n Hence the answer is 4.",
+      "image": "assets/puzzle1.png"
+  },
+  {
+      "puzzleId": "2",
+      "difficulty": "medium",
+      "category": "probability",
+      "question": "What is the probability of getting a 6 when rolling a fair six-sided die?",
+      "hint": "There is only one 6 on a die.",
+      "answer": "1/6",
+      "solution": "A fair six-sided die has one 6, so the probability of rolling a 6 is 1 out of 6.",
+      "image": null
+  }
+]
