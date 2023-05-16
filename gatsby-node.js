@@ -13,18 +13,31 @@ exports.createPages = async function ({ actions, graphql }) {
       allPuzzlesJson {
         nodes {
           puzzleId
+          category
         }
       }
     }
-  `)
+  `);
 
+
+
+  // Create a page for each puzzle
   data.allPuzzlesJson.nodes.forEach(node => {
-    const puzzleId = node.puzzleId
+    const puzzleId = node.puzzleId;
+    const category = node.category;
 
+    // Puzzle page
     actions.createPage({
       path: `puzzles/${puzzleId}`,
       component: require.resolve(`./src/templates/puzzle.js`),
       context: { puzzleId: puzzleId },
-    })
-  })
-}
+    });
+
+    // Category puzzle page
+    actions.createPage({
+      path: `puzzles/${category}/${puzzleId}`,
+      component: require.resolve(`./src/templates/puzzle.js`),
+      context: { puzzleId: puzzleId },
+    });
+  });
+};
