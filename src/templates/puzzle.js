@@ -31,10 +31,11 @@ export default function Puzzle({ data, pageContext }) {
         <p>{`Difficulty: ${puzzle.difficulty}`}</p>
         <p>{`Category: ${puzzle.category}`}</p>
         <p>{`Question: ${puzzle.question}`}</p>
+        {puzzle.questionImage && <img src={`/puzzle-images/${puzzle.questionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'margin-left': 'auto', 'margin-right': 'auto' }} alt={`QuestionImage ${puzzle.puzzleId}`} />}
         <p>{`Hint: ${puzzle.hint}`}</p>
         <p>{`Answer: ${puzzle.answer}`}</p>
         <p>{`Solution: ${puzzle.solution}`}</p>
-        {puzzle.questionImage && <img src={puzzle.questionImage} alt={`Puzzle ${puzzle.puzzleId}`} />}
+        {puzzle.solutionImage && <img src={`/puzzle-images/${puzzle.solutionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'margin-left': 'auto', 'margin-right': 'auto' }} alt={`SolutionImage ${puzzle.puzzleId}`} />}
       </div>
     </Layout>
   )
