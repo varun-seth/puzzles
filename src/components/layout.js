@@ -35,6 +35,7 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer
           style={{
+            textAlign: `center`,
             marginTop: `var(--space-5)`,
             fontSize: `var(--font-sm)`,
           }}

@@ -1,22 +1,26 @@
 [
-  {
-      "puzzleId": "1",
-      "difficulty": "easy",
-      "category": "discrete-maths",
-      "question": "What is 2+2?",
-      "hint": "It's not 5.",
-      "answer": "4",
-      "solution": "2+2 equals 4\n Hence the answer is 4.",
-      "image": "assets/puzzle1.png"
-  },
-  {
-      "puzzleId": "2",
-      "difficulty": "medium",
-      "category": "probability",
-      "question": "What is the probability of getting a 6 when rolling a fair six-sided die?",
-      "hint": "There is only one 6 on a die.",
-      "answer": "1/6",
-      "solution": "A fair six-sided die has one 6, so the probability of rolling a 6 is 1 out of 6.",
-      "image": null
-  }
+ {
+  "puzzleId": 1,
+  "title": "Rolling the bullet",
+  "difficulty": "easy",
+  "category": "probability",
+  "source": "Quant Interview",
+  "question": "Two bullets are put into a gun's round barrel consecutively, which has capacity of 6. The gun is shot once, but no bullet is fired. Does rolling the barrel (shuffling) before next shot increase the probability of firing a bullet?",
+  "questionImage": "rolling_bullet.png",
+  "hint": "Since one empty slot has been used, there must be more probability of shooting a bullet in next chance, than shooting after a shuffle.",
+  "answer": "Yes!",
+  "solution": "Since there are 6 total slots with 2 bullets, the probabilty of firing a bullet after shuffle is 2\/6.\n\nThe probability of getting bullet without shuffle is 1\/4. To understand this, look at the image, and imagine that one of the empty slots (3,4,5,6) just got shot. Now assumming the barrel turns clockwise, next shot will be 4 ,5 ,6 or 1. and out of these four, only (1) has bullet. Hence probability of firing a bullet is 1\/4. Note that this same case stands in anticlockwise direction.\n\nWith shuffle its 2\/6=1\/3. Hence yes, shuffling does increase probability of shooting bullet (from 1\/4 to 1\/3)\n",
+  "solutionImage": "rolling_bullet_a.png"
+ },
+ {
+  "puzzleId": 2,
+  "title": "Pirates & The Treasure",
+  "difficulty": "easy",
+  "category": "strategy",
+  "source": "Technical Interview",
+  "question": "Five pirates need to divide 100 Gold Coins. Pirates have hierarchy, from Level 5 to level 1. The level-5 pirate proposes a division plan and all the pirates vote on it. If at least 50% of the pirates agree on the plan, the gold is split according to the proposal. If not, level-5 pirate is kicked from the ship, and the level-4 pirate now proposes a plan. This process continues until a proposal is accepted. All pirates are extremely smart and extremely greedy. How does level-5 Pirate divide the treasure?",
+  "hint": "Here n=5, think in terms of what happens if n=1,2,3...",
+  "answer": "Division is: 98,0,1,0,1",
+  "solution": "To understand the answer, we need to reduce this problem to only 2 pirates. So what happens if there are only 2 pirates. Pirate 2 can easily propose that he gets all the 100 gold coins. Since he constitutes 50% of the pirates, the proposal has to be accepted leaving Pirate 1 with nothing.\n\nNow let's look at 3 pirates situation, Pirate 3 knows that if his proposal does not get accepted, then pirate 2 will get all the gold and pirate 1 will get nothing. So he decides to bribe pirate 1 with one gold coin. Pirate 1 knows that one gold coin is better than nothing so he has to back pirate 3. Pirate 3 proposes {pirate 1, pirate 2, pirate 3} {1, 0, 99}. Since pirate 1 and 3 will vote for it, it will be accepted.\n\nIf there are 4 pirates, pirate 4 needs to get one more pirate to vote for his proposal. Pirate 4 realizes that if he dies, pirate 2 will get nothing (according to the proposal with 3 pirates) so he can easily bribe pirate 2 with one gold coin to get his vote. So the distribution will be {0, 1, 0, 99}.\n\nSmart right? Now can you figure out the distribution with 5 pirates? Let's see. Pirate 5 needs 2 votes and he knows that if he dies, pirate 1 and 3 will get nothing. He can easily bribe pirates 1 and 3 with one gold coin each to get their vote. In the end, he proposes {1, 0, 1, 0, 98}. This proposal will get accepted and provide the maximum amount of gold to pirate 5.\n\nPS:This puzzle gives a basic idea of game theory and dynamic programming. "
+ }
 ]

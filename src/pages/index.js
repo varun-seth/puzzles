@@ -22,16 +22,16 @@ const IndexPage = ({ data }) => {
           alt=""
           style={{ marginBottom: `var(--space-3)` }}
         />
-        <h1>Welcome to Puzzles Website</h1>
+        <h1>Welcome to BRAINSTELLAR</h1>
         <ul className={styles.list}>
           {puzzles.map(puzzle => (
             <li key={puzzle.puzzleId} className={styles.listItem}>
               <h2>
-                <Link to={`/puzzles/${puzzle.puzzleId}`} className={styles.listItemLink}>{`Puzzle ${puzzle.puzzleId}`}</Link>
+                <Link to={`/puzzles/${puzzle.puzzleId}`} className={styles.listItemLink}>{puzzle.title}</Link>
               </h2>
               <p className={styles.listItemDescription}>{`Difficulty: ${puzzle.difficulty}`}</p>
               <p className={styles.listItemDescription}>{`Category: ${puzzle.category}`}</p>
-              <p className={styles.listItemDescription}>{`Question: ${puzzle.question}`}</p>
+              <p className={styles.listItemDescription}>{`Title: ${puzzle.title}`}</p>
             </li>
           ))}
         </ul>
@@ -47,7 +47,7 @@ export const query = graphql`
         puzzleId
         difficulty
         category
-        question
+        title
       }
     }
   }

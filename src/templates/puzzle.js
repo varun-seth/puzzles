@@ -1,39 +1,40 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
-// Import the layout component
 import Layout from '../components/layout'
 
 export const query = graphql`
-  query($puzzleId: String!) {
-    puzzlesJson(puzzleId: {eq: $puzzleId}) {
+  query($puzzleId: Int!, $category: String) {
+    puzzlesJson(puzzleId: { eq: $puzzleId }, category: { eq: $category }) {
       puzzleId
       difficulty
       category
+      title
       question
+      questionImage
       hint
       answer
       solution
-      image
+      solutionImage
     }
   }
 `
 
-export default function Puzzle({ data }) {
+export default function Puzzle({ data, pageContext }) {
   const puzzle = data.puzzlesJson
+  const { puzzleId, category } = pageContext
 
   return (
-    // Wrap the content with the layout component
     <Layout>
       <div>
-        <h1>{`Puzzle ${puzzle.puzzleId}`}</h1>
+        <h1>{puzzle.title}</h1>
         <p>{`Difficulty: ${puzzle.difficulty}`}</p>
         <p>{`Category: ${puzzle.category}`}</p>
         <p>{`Question: ${puzzle.question}`}</p>
         <p>{`Hint: ${puzzle.hint}`}</p>
         <p>{`Answer: ${puzzle.answer}`}</p>
         <p>{`Solution: ${puzzle.solution}`}</p>
-        {puzzle.image && <img src={puzzle.image} alt={`Puzzle ${puzzle.puzzleId}`} />}
+        {puzzle.questionImage && <img src={puzzle.questionImage} alt={`Puzzle ${puzzle.puzzleId}`} />}
       </div>
     </Layout>
   )

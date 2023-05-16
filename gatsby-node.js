@@ -7,6 +7,21 @@
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
+
+
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type PuzzlesJson implements Node @infer {
+      answer: String
+    }
+  `;
+  createTypes(typeDefs);
+}
+
+
+
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
     query {
