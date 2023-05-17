@@ -28,7 +28,7 @@ export default function Puzzle({ data, pageContext }) {
   return (
     <Layout>
       <Helmet>
-        <link rel="icon" href="favicon.gif" />
+        <link rel="icon" href="/favicon.gif" />
         <title>{puzzle.title} | Brainstellar Puzzles</title>
       </Helmet>
       <div>

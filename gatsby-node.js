@@ -57,9 +57,6 @@ exports.createPages = async function ({ actions, graphql }) {
     .reverse()
     .find(p => p.category === category)?.puzzleId;
 
-
-    console.log({ puzzleId, category, nextPuzzleId, nextCategoryPuzzleId });
-
     // Puzzle page
     actions.createPage({
       path: `puzzles/${puzzleId}`,

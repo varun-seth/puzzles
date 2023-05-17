@@ -28,6 +28,15 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        workboxConfig: {
+          globPatterns: ['**/puzzles/**/*.html', '/index.html'],
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
