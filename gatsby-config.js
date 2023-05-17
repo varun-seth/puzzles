@@ -31,7 +31,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `BRAINSTELLAR Puzzles`,
+        name: `BRAINSTELLAR`,
         short_name: `BRAINSTELLAR`,
         start_url: `/`,
         background_color: `#a8323c`,

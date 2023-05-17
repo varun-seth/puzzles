@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/layout'
+import { Helmet } from "react-helmet";
 
 export const query = graphql`
   query($puzzleId: Int!, $category: String) {
@@ -26,6 +27,10 @@ export default function Puzzle({ data, pageContext }) {
 
   return (
     <Layout>
+      <Helmet>
+        <link rel="icon" href="favicon.gif" />
+        <title>{puzzle.title} | Brainstellar Puzzles</title>
+      </Helmet>
       <div>
         {category && <h2>{category} puzzles</h2>}
         <h3>{puzzle.title}</h3>

@@ -14,7 +14,8 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
     type PuzzlesJson implements Node @infer {
-      answer: String
+      answer: String,
+      title: String,
     }
   `;
   createTypes(typeDefs);

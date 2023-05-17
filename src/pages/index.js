@@ -31,7 +31,6 @@ const IndexPage = ({ data }) => {
               </h2>
               <p className={styles.listItemDescription}>{`Difficulty: ${puzzle.difficulty}`}</p>
               <p className={styles.listItemDescription}>{`Category: ${puzzle.category}`}</p>
-              <p className={styles.listItemDescription}>{`Title: ${puzzle.title}`}</p>
             </li>
           ))}
         </ul>
