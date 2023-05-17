@@ -27,18 +27,20 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `BRAINSTELLAR Puzzles`,
+        short_name: `BRAINSTELLAR`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#a8323c`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/favicon.gif`, // This path is relative to the root of the site.
+        display: `standalone`,
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+        include_favicon: false, // This will exclude favicon from the generated manifest file
       },
     },
   ],

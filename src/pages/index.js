@@ -14,13 +14,13 @@ const IndexPage = ({ data }) => {
       <Seo title="Home" />
       <div className={styles.textCenter}>
         <StaticImage
-          src="../images/favicon.gif"
+          src="../images/logo.png"
           loading="eager"
           width={64}
-          quality={95}
+          quality={100}
           formats={["auto", "webp", "avif"]}
           alt=""
-          style={{ marginBottom: `var(--space-3)` }}
+          style={{ marginBottom: `var(--space-3)` , borderRadius: `10px`}}
         />
         <h1>Welcome to BRAINSTELLAR</h1>
         <ul className={styles.list}>
