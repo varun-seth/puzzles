@@ -22,12 +22,13 @@ export const query = graphql`
 
 export default function Puzzle({ data, pageContext }) {
   const puzzle = data.puzzlesJson
-  const { puzzleId, category } = pageContext
+  const { previousPuzzleRoute, nextPuzzleRoute, category } = pageContext
 
   return (
     <Layout>
       <div>
-        <h1>{puzzle.title}</h1>
+        {category && <h2>{category} puzzles</h2>}
+        <h3>{puzzle.title}</h3>
         <p>{`Difficulty: ${puzzle.difficulty}`}</p>
         <p>{`Category: ${puzzle.category}`}</p>
         <p>{`Question: ${puzzle.question}`}</p>
@@ -36,6 +37,16 @@ export default function Puzzle({ data, pageContext }) {
         <p>{`Answer: ${puzzle.answer}`}</p>
         <p>{`Solution: ${puzzle.solution}`}</p>
         {puzzle.solutionImage && <img src={`/puzzle-images/${puzzle.solutionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'margin-left': 'auto', 'margin-right': 'auto' }} alt={`SolutionImage ${puzzle.puzzleId}`} />}
+
+        <div>
+        {previousPuzzleRoute && (
+          <Link style={{float:`left`}} to={previousPuzzleRoute}>Previous</Link>
+        )}
+        {nextPuzzleRoute && (
+          <Link style={{float:`right`}} to={nextPuzzleRoute}>Next</Link>
+        )}
+
+        </div>
       </div>
     </Layout>
   )
