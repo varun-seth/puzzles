@@ -7,6 +7,7 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { Helmet } from "react-helmet";
 
 import Header from "./header"
 import "./layout.css"
@@ -24,7 +25,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Helmet>
+        <link rel="icon" href="/favicon.gif" />
+        <title>Brainstellar Puzzles from Quant Interviews</title>
+      </Helmet>
       <div
         style={{
           margin: `0 auto`,
@@ -32,6 +36,7 @@ const Layout = ({ children }) => {
           padding: `var(--size-gutter)`,
         }}
       >
+        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
         <main>{children}</main>
         <footer
           style={{
