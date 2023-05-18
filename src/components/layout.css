@@ -366,7 +366,7 @@ body {
 }
 
 .bord1 {
-  border-bottom: 1px solid #d8d8d8
+  border-bottom: 1px solid rgb(128, 128, 128, 0.31)
 }
 
 body {
@@ -381,12 +381,12 @@ body {
   }
 
   .bord1 {
-    border: 1px solid #ebebeb;
+    border: 1px solid rgb(128, 128, 128, 0.16);;
     border-radius: 8px;
   }
 
   .bord2 {
-    border: 1px solid #d8d8d8;
+    border: 1px solid rgb(128, 128, 128, 0.31);
     border-radius: 7px;
   }
 
@@ -474,7 +474,7 @@ h2,
 }
 
 .btn {
-  background: #888;
+  background: #808080;
   border-radius: 6px;
   border: 0;
   color: var(--color-background);
@@ -862,7 +862,7 @@ input[type='text'] {
   background: var(--color-background);
   margin: .2em .3em .2em 0;
   padding: 8px 20px 9px;
-  border: 2px solid #888;
+  border: 2px solid #808080;
   border-radius: 20px;
 }
 
@@ -879,7 +879,7 @@ input[type='text'] {
   text-decoration: none;
   margin: .2em .3em .2em 0;
   padding: 8px 20px 9px;
-  border: 2px solid #888;
+  border: 2px solid #808080;
   border-radius: 20px;
   cursor: pointer;
   display: inline-block;
@@ -894,7 +894,7 @@ input[type='text'] {
 
 .pushed {
   color: var(--color-background);
-  background: #888;
+  background: #808080;
   text-decoration: none;
   margin: .2em .3em .2em 0;
   padding: 10px 22px 11px;
@@ -1120,7 +1120,7 @@ input[type='text'] {
 
   .btn-scalegrey {
     font-size: 1.1em;
-    background: #888;
+    background: #808080;
     padding: 10px
   }
 
