@@ -1,17 +1,20 @@
 :root {
   --color-text: black;
   --color-background: white;
+  --color-background-off: #f2f2f2;
 }
 
 [data-theme="dark"] {
   --color-text: white;
   --color-background: #1d1d1d;
+  --color-background-off: #2d2d2d;
 }
 
 [data-theme="auto"] {
   @media (prefers-color-scheme: dark) {
     --color-text: white;
     --color-background: #1d1d1d;
+    --color-background-off: #2d2d2d;
   }
 }
 
@@ -351,7 +354,7 @@ body {
 }
 
 .stylishpage {
-  background: #fff;
+  background: var(--color-background);
   margin: 2px;
   margin-top: 15px;
   margin-bottom: 2px;
@@ -367,14 +370,14 @@ body {
 }
 
 body {
-  background: white
+  background: var(--color-background)
 }
 
 @media(min-width:600px) {
 
   /*this is satisfied for 600 to 1024*/
   body {
-    background: #f2f2f2
+    background: var(--color-background-off)
   }
 
   .bord1 {
@@ -384,7 +387,6 @@ body {
 
   .bord2 {
     border: 1px solid #d8d8d8;
-    border-top: 0px solid #f2f2f2;
     border-radius: 7px;
   }
 
@@ -404,7 +406,7 @@ body {
   }
 
   .stylishpage {
-    background: #fff;
+    background: var(--color-background);
     border-radius: 9px;
     margin: 4px;
     margin-top: 6px;
@@ -436,7 +438,7 @@ body {
   }
 
   .stylishpage {
-    background: #fff;
+    background: var(--color-background);
     border-radius: 9px;
     margin: 6px;
     margin-top: 8px;
@@ -475,7 +477,7 @@ h2,
   background: #888;
   border-radius: 6px;
   border: 0;
-  color: #fff;
+  color: var(--color-background);
   cursor: pointer;
   display: inline-block;
   margin: .2em .3em .2em 0;
@@ -484,7 +486,7 @@ h2,
 
 .btn:hover {
   background: #666;
-  color: #fff;
+  color: var(--color-background);
   text-decoration: none
 }
 
@@ -506,8 +508,8 @@ h2,
 
 
 .link-easy {
-  background: #fff;
-  color: black;
+  background: var(--color-background);
+  color: var(--color-text);
   something-else: #00cd1d;
   margin: .2em .3em .2em 0;
   border: 0px solid #cfc;
@@ -516,18 +518,18 @@ h2,
 
 .link-easy:hover {
   background: #2b4;
-  color: #fff;
+  color: var(--color-background);
 }
 
 .link-easy:active,
 .link-easy:focus {
   background: #092;
-  color: #fff;
+  color: var(--color-background);
 }
 
 .link-medium {
-  background: #fff;
-  color: black;
+  background: var(--color-background);
+  color: var(--color-text);
   margin: .2em .3em .2em 0;
   border: 0px solid #ccf;
   something-else: #09d;
@@ -535,18 +537,18 @@ h2,
 
 .link-medium:hover {
   background: #09d;
-  color: #fff;
+  color: var(--color-background);
 }
 
 .link-medium:active,
 .link-medium:focus {
   background: #07b;
-  color: #fff;
+  color: var(--color-background);
 }
 
 .link-hard {
-  background: #fff;
-  color: black;
+  background: var(--color-background);
+  color: var(--color-text);
   margin: .2em .3em .2em 0;
   border: 0px solid #fcc;
   something-else: #e91414
@@ -554,13 +556,13 @@ h2,
 
 .link-hard:hover {
   background: #d33;
-  color: #fff;
+  color: var(--color-background);
 }
 
 .link-hard:active,
 .link-hard:focus {
   background: #b11;
-  color: #fff
+  color: var(--color-background)
 }
 
 
@@ -611,7 +613,7 @@ h2,
 
 
 .btn-hint {
-  color: #fff;
+  color: var(--color-background);
   cursor: pointer;
   font-size: 1em;
   border-radius: 22px;
@@ -657,8 +659,8 @@ input[type='text'] {
 
 .nav,
 .nav .current {
-  background: #000;
-  color: #fff;
+  background: var(--color-text);
+  color: var(--color-background);
   background-image: url('/img/background_20p.png');
 }
 
@@ -666,7 +668,7 @@ input[type='text'] {
 .nav a:hover,
 .nav a:active,
 .nav a:focus {
-  color: #fff;
+  color: var(--color-background);
 }
 
 .nav-links:hover,
@@ -696,7 +698,7 @@ input[type='text'] {
 
 .btn.btn-close {
   padding: 0px 3px 0px;
-  background: #000;
+  background: var(--color-text);
   visibility: hidden;
   float: right;
   margin-top: -35px;
@@ -725,7 +727,7 @@ input[type='text'] {
   .nav-links:hover,
   .nav-links:active,
   .nav-links:focus {
-    background: #000;
+    background: var(--color-text);
   }
 
   .btn.btn-close {
@@ -754,7 +756,7 @@ input[type='text'] {
     top: 12px;
     width: 25px;
     position: relative;
-    background: #000
+    background: var(--color-text);
   }
 
   .nav a {
@@ -856,8 +858,8 @@ input[type='text'] {
 }
 
 .around {
-  color: #000;
-  background: #fff;
+  color: var(--color-text);
+  background: var(--color-background);
   margin: .2em .3em .2em 0;
   padding: 8px 20px 9px;
   border: 2px solid #888;
@@ -867,12 +869,13 @@ input[type='text'] {
 .around:hover,
 .around:active,
 .around:focus {
-  color: #000;
-  background: #fff;
+  color: var(--color-text);
+  background: var(--color-background);
 }
 
 .push {
-  color: #000;
+  background-color: var(--color-background);
+  color: var(--color-text);
   text-decoration: none;
   margin: .2em .3em .2em 0;
   padding: 8px 20px 9px;
@@ -890,7 +893,7 @@ input[type='text'] {
 }
 
 .pushed {
-  color: #fff;
+  color: var(--color-background);
   background: #888;
   text-decoration: none;
   margin: .2em .3em .2em 0;
@@ -973,7 +976,7 @@ input[type='text'] {
 .btn-greyblue:active,
 .btn-greyblue:focus {
   visibility: visible;
-  background: black
+  background: var(--color-text);
 }
 
 
@@ -985,21 +988,21 @@ input[type='text'] {
   padding: 5px 10px 5px;
   margin: .6em .6em .6em 0;
   background: #5fab54;
-  color: #fff;
+  color: var(--color-background);
 }
 
 .link-medium {
   padding: 5px 10px 5px;
   margin: .6em .6em .6em 0;
   background: #547bd3;
-  color: #fff;
+  color: var(--color-background);
 }
 
 .link-hard {
   padding: 5px 10px 5px;
   margin: .6em .6em .6em 0;
   background: #d35454;
-  color: #fff;
+  color: var(--color-background);
 }
 
 .btn-scalegrey {
@@ -1057,7 +1060,7 @@ input[type='text'] {
 .btn-greyblack {
   margin-top: 20px;
   padding: 0.5em;
-  background: #f2f2f2
+  background: var(--color-background-off)
 }
 
 .btn-sm {
@@ -1088,29 +1091,29 @@ input[type='text'] {
   .link-easy {
     padding: 10px 15px 11px;
     margin: .2em .3em .2em 0;
-    background: #fff;
-    color: #000;
+    background: var(--color-background);
+    color: var(--color-text);
   }
 
   .link-medium {
     padding: 10px 15px 11px;
     margin: .2em .3em .2em 0;
-    background: #fff;
-    color: #000;
+    background: var(--color-background);
+    color: var(--color-text);
   }
 
   .link-hard {
     padding: 10px 15px 11px;
     margin: .2em .3em .2em 0;
-    background: #fff;
-    color: #000;
+    background: var(--color-background);
+    color: var(--color-text);
   }
 
   .link-white {
     padding: 10px 15px 11px;
     margin: .2em .3em .2em 0;
-    background: #fff;
-    color: #000;
+    background: var(--color-background);
+    color: var(--color-text);
   }
 
 
@@ -1135,7 +1138,7 @@ input[type='text'] {
 
   .btn-greyblack {
     padding: 1em;
-    background: #f2f2f2;
+    background: var(--color-background-off);
     visibility: hidden;
   }
 
@@ -1152,7 +1155,7 @@ input[type='text'] {
   padding: 0px;
   padding: 0px;
   padding-left: 10px;
-  color: white;
+  color: var(--color-background);
   height: 0px;
   line-height: 0px;
   border-top: 10px solid transparent;
@@ -1161,7 +1164,7 @@ input[type='text'] {
 }
 
 .arrow-right1:hover {
-  border-left: 15px solid white;
+  border-left: 15px solid var(--color-background);
 }
 
 .ulink {
