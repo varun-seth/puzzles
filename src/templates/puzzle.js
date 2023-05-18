@@ -4,8 +4,8 @@ import Layout from '../components/layout'
 import { Helmet } from "react-helmet";
 
 export const query = graphql`
-  query($puzzleId: Int!, $category: String) {
-    puzzlesJson(puzzleId: { eq: $puzzleId }, category: { eq: $category }) {
+  query($puzzleId: Int!) {
+    puzzlesJson(puzzleId: { eq: $puzzleId }) {
       puzzleId
       difficulty
       category
@@ -22,7 +22,7 @@ export const query = graphql`
 
 export default function Puzzle({ data, pageContext }) {
   const puzzle = data.puzzlesJson
-  const { previousPuzzleRoute, nextPuzzleRoute, category } = pageContext
+  const { previousPuzzleRoute, nextPuzzleRoute, category, difficulty } = pageContext
 
   useEffect(() => {
     document.querySelectorAll('.push').forEach(button => {
@@ -46,7 +46,10 @@ export default function Puzzle({ data, pageContext }) {
         <title>{puzzle.title} | Brainstellar Puzzles</title>
       </Helmet>
       <div class="stylishpage"><div class="bord1"><div class="bord2"><div class="container">
-        {category && <h2>{category} puzzles</h2>}
+      {category && <h2 style={{textAlign: `center`, marginTop:`1.5em`, marginBottom:`1em`}}>{category} puzzles</h2>}
+
+      {difficulty && <h2 style={{textAlign: `center`, marginTop:`1.5em`, marginBottom:`1em`}}>{difficulty} puzzles</h2>}
+      
 
         {/* <Link class="btn  btn-sm btn-medium smooth" to={`/puzzles/${puzzle.difficulty}`} title={`More ${puzzle.difficulty} puzzles`} className={"btn  btn-sm link-white smooth"}>{puzzle.difficulty}</Link> */}
 

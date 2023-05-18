@@ -22,18 +22,17 @@ const IndexPage = ({ data }) => {
           alt=""
           style={{ marginBottom: `var(--space-3)` , borderRadius: `10px`}}
         />
-        <h1>Welcome to BRAINSTELLAR</h1>
-        <ul className={styles.list}>
+        
+        <div class="stylishpage"> <div class="bord1"><div class="bord2">
+          <h2>All Puzzles</h2>
+          {/* This section has all puzzles ordered from oldest to newest. This is the order I discovered them in. */}
+
           {puzzles.map(puzzle => (
-            <li key={puzzle.puzzleId} className={styles.listItem}>
-              <h2>
-                <Link to={`/puzzles/${puzzle.puzzleId}`} className={styles.listItemLink}>{puzzle.title}</Link>
-              </h2>
-              <p className={styles.listItemDescription}>{`Difficulty: ${puzzle.difficulty}`}</p>
-              <p className={styles.listItemDescription}>{`Category: ${puzzle.category}`}</p>
-            </li>
+            <span key={puzzle.puzzleId}>
+            <Link to={`/puzzles/${puzzle.puzzleId}`} className={`btn btn-sm link-${puzzle.difficulty} smooth`}>{puzzle.title}</Link>
+            </span>
           ))}
-        </ul>
+        </div></div></div>
       </div>
     </Layout>
   )
