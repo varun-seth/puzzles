@@ -10,6 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet";
 
 import Header from "./header"
+import Footer from "./footer"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -38,15 +39,8 @@ const Layout = ({ children }) => {
       >
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
         <main>{children}</main>
-        <footer
-          style={{
-            textAlign: `center`,
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; BRAINSTELLAR
-        </footer>
+
+        <Footer/>
       </div>
     </>
   )

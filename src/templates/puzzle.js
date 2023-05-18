@@ -44,13 +44,12 @@ export default function Puzzle({ data, pageContext }) {
         {puzzle.solutionImage && <img src={`/puzzle-images/${puzzle.solutionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'margin-left': 'auto', 'margin-right': 'auto' }} alt={`SolutionImage ${puzzle.puzzleId}`} />}
 
         <div>
-        {previousPuzzleRoute && (
-          <Link style={{float:`left`}} to={previousPuzzleRoute}>Previous</Link>
-        )}
-        {nextPuzzleRoute && (
-          <Link style={{float:`right`}} to={nextPuzzleRoute}>Next</Link>
-        )}
-
+          {previousPuzzleRoute && (
+            <Link style={{float:`left`}} to={previousPuzzleRoute}>Previous</Link>
+          )}
+          {nextPuzzleRoute && (
+            <Link style={{float:`right`}} to={nextPuzzleRoute}>Next</Link>
+          )}
         </div>
       </div>
     </Layout>

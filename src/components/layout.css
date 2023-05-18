@@ -6,13 +6,13 @@
 
 [data-theme="dark"] {
   --color-text: white;
-  --color-background: black;
+  --color-background: #1d1d1d;
 }
 
 [data-theme="auto"] {
   @media (prefers-color-scheme: dark) {
     --color-text: white;
-    --color-background: black;
+    --color-background: #1d1d1d;
   }
 }
 
