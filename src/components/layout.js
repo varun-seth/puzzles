@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.gif" />
         <title>Brainstellar Puzzles from Quant Interviews</title>
       </Helmet>
-      <div
+      <div className={`wrapper`}
         style={{
           margin: `0 auto`,
           maxWidth: `var(--size-content)`,
@@ -38,7 +38,13 @@ const Layout = ({ children }) => {
         }}
       >
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <main>{children}</main>
+        <main
+        className={`container-outer`}
+        >
+          <div className={`row`}>
+          {children}
+          </div>
+        </main>
 
         <Footer/>
       </div>
