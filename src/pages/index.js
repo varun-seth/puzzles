@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
   const puzzles = data.allPuzzlesJson.nodes
 
   return (
-    <Layout>
+    <Layout id="wrapper">
       <Seo title="Home" />
       <div className={styles.textCenter}>
         <StaticImage
