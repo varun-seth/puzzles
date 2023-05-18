@@ -1,3 +1,8 @@
+
+import React from 'react';
+import { ThemeProvider } from './src/contexts/ThemeContext';
+
+
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
  *
@@ -7,6 +12,14 @@
 /**
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
-exports.onRenderBody = ({ setHtmlAttributes }) => {
-  setHtmlAttributes({ lang: `en` })
-}
+export const onRenderBody = ({ setHtmlAttributes }) => {
+  setHtmlAttributes({ lang: `en` });
+};
+
+export const wrapRootElement = ({ element }) => {
+  return (
+    <ThemeProvider>
+      {element}
+    </ThemeProvider>
+  );
+};

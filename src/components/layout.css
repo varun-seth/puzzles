@@ -1,6 +1,28 @@
+
+:root {
+  --color-text: black;
+  --color-background: white;
+}
+
+[data-theme="dark"] {
+  --color-text: white;
+  --color-background: black;
+}
+
+[data-theme="auto"] {
+  @media (prefers-color-scheme: dark) {
+    --color-text: white;
+    --color-background: black;
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
 :root {
   --border-radius: 4px;
-  --color-text: #333;
   --color-primary: #7026b9;
   --color-code-bg: #fff4db;
   --color-code: #8a6534;
