@@ -28,15 +28,10 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-offline',
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        workboxConfig: {
-          globPatterns: ['**/puzzles/**/*.html', '/index.html'],
-        },
-      },
-    },
+    // removed gatsby-plugin-offline due to development issues with service wokers
+    // many pages were giving error "ERR_FAILED" (not 404)
+    // resolved by unregistering service worker in chrome dev tools
+    // Do not add gatsby-plugin-offline again without a thorough test
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
