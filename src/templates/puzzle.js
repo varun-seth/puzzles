@@ -20,6 +20,28 @@ export const query = graphql`
   }
 `
 
+const Button = ({ id, label, content, display }) => {
+  const [isHidden, setIsHidden] = useState(true);
+
+  const toggleContent = () => {
+    setIsHidden(!isHidden);
+  };
+
+  return (
+    <>
+    <div>
+      <button style={{display: `block`}} id={`${id}Button`} className={`push ${isHidden ? '' : 'pushed'}`} onClick={toggleContent}>{label}</button>
+      <div id={id} className={isHidden ? 'hidden' : 'unhidden'}>
+        <div className="around">
+          {content}
+        </div>
+      </div>
+    </div>
+    </>
+  );
+}
+
+
 export default function Puzzle({ data, pageContext }) {
   const puzzle = data.puzzlesJson
   const { previousPuzzleRoute, nextPuzzleRoute, category, difficulty } = pageContext
@@ -28,6 +50,7 @@ export default function Puzzle({ data, pageContext }) {
   useEffect(() => {
     document.querySelectorAll('.push').forEach(button => {
       button.addEventListener('click', function () {
+        console.log({ id: this.id });
         const content = document.getElementById(this.id.replace('Button', ''))
         if (content) {
           const isHidden = content.classList.contains('hidden')
@@ -39,14 +62,6 @@ export default function Puzzle({ data, pageContext }) {
       })
     })
 
-    // Clean up event listeners when the component unmounts
-    return () => {
-      document.querySelectorAll('.push').forEach(button => {
-        button.removeEventListener('click', function () {
-          // Remove event listener logic here
-        })
-      })
-    }
   }, [])
 
   useEffect(() => {
@@ -56,8 +71,6 @@ export default function Puzzle({ data, pageContext }) {
   }, []);
 
   useEffect(() => {
-    // ...
-
     const loadFacebookComments = () => {
       if (window.FB) {
         window.FB.XFBML.parse(); // Reload the comments plugin
@@ -96,7 +109,7 @@ export default function Puzzle({ data, pageContext }) {
         <link rel="icon" href="/favicon.gif" />
         <title>{puzzle.title} | Brainstellar Puzzles</title>
       </Helmet>
-      <div class="stylishpage"><div class="bord1"><div class="bord2"><div class="container">
+      <div className="stylishpage"><div className="bord1"><div className="bord2"><div className="container">
         {category && <h2 style={{ textAlign: `center`, marginTop: `1.5em`, marginBottom: `1em` }}>{category} puzzles</h2>}
 
         {difficulty && <h2 style={{ textAlign: `center`, marginTop: `1.5em`, marginBottom: `1em` }}>{difficulty} puzzles</h2>}
@@ -131,47 +144,30 @@ export default function Puzzle({ data, pageContext }) {
 
         {puzzle.questionImage && <img src={`/puzzle-images/${puzzle.questionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'margin-left': 'auto', 'margin-right': 'auto' }} alt={`QuestionImage ${puzzle.puzzleId}`} />}
 
-        {puzzle.hint && <div>
-          <button id={`hint${puzzle.puzzleId}Button`} className="push">Hint</button>
-          <div id={`hint${puzzle.puzzleId}`} className="hidden">
-            <div class="around">
-              {puzzle.hint}
-            </div>
-          </div>
-        </div>
+        {puzzle.hint &&
+          <Button id={`hint${puzzle.puzzleId}`} label="Hint" content={puzzle.hint} />
         }
 
-
-        {puzzle.answer && <div>
-          <button id={`answer${puzzle.puzzleId}Button`} className="push">Answer</button>
-          <div id={`answer${puzzle.puzzleId}`} className="hidden">
-            <div class="around">
-              {puzzle.answer}
-            </div>
-          </div>
-        </div>
+        {puzzle.answer &&
+          <Button id={`answer${puzzle.puzzleId}`} label="Answer" content={puzzle.answer} />
         }
 
-        {puzzle.solution && <div>
-          <button id={`solution${puzzle.puzzleId}Button`} className="push">Solution</button>
-          <div id={`solution${puzzle.puzzleId}`} className="hidden">
-            <div class="around">
+        {puzzle.solution &&
+          <Button id={`solution${puzzle.puzzleId}`} label="Solution" content={
+            <>
               {puzzle.solution}
-              {puzzle.solutionImage && <img src={`/puzzle-images/${puzzle.solutionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'margin-left': 'auto', 'margin-right': 'auto' }} alt={`SolutionImage ${puzzle.puzzleId}`} />}
-            </div>
-          </div>
-        </div>
+              {puzzle.solutionImage &&
+                <img src={`/puzzle-images/${puzzle.solutionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'margin-left': 'auto', 'margin-right': 'auto' }} alt={`SolutionImage ${puzzle.puzzleId}`} />
+              }
+            </>
+          } />
         }
 
-        <br />
-
-        <div>
-
-          {displayComments && (
+        {displayComments && 
+          <Button id={`comments${puzzle.puzzleId}`} label="Comments" content={
             <div className="fb-comments" data-href={`http://brainstellar.com/puzzles/${puzzle.puzzleId}`} data-width="" data-numposts="5"></div>
-          )}
-        </div>
-
+          } display={displayComments} />
+        }
 
         <br />
         <div style={{ marginBottom: `50px` }}>

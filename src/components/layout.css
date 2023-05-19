@@ -716,8 +716,8 @@ input[type='text'] {
   text-decoration: none;
   margin: .2em .3em .2em 0;
   padding: 10px 22px 11px;
-  border: 0px;
-  border-radius: 22px;
+  border: 2px solid #808080;
+  border-radius: 20px;
   cursor: pointer;
   display: inline-block;
 }

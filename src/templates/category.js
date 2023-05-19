@@ -29,7 +29,7 @@ export default function Cateogry({ data, pageContext }) {
       </Helmet>
       <div class="stylishpage"><div class="bord1"><div class="bord2"><div class="container">
 
-        {category && <h2 style={{textAlign: `center`, marginTop:`1em`, marginBottom:`1em`}}>{category} puzzles</h2>}
+        {category && <h2 style={{textAlign: `center`, marginTop:`1.5em`, marginBottom:`1em`}}>{category} puzzles</h2>}
 
 
         {puzzles.map(puzzle => (

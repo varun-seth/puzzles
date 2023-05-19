@@ -29,7 +29,7 @@ export default function Cateogry({ data, pageContext }) {
       </Helmet>
       <div class="stylishpage"><div class="bord1"><div class="bord2"><div class="container">
 
-        {difficulty && <h2 style={{textAlign: `center`, marginTop:`1em`, marginBottom:`1em`}}>{difficulty} puzzles</h2>}
+        {difficulty && <h2 style={{textAlign: `center`, marginTop:`1.5em`, marginBottom:`1em`}}>{difficulty} puzzles</h2>}
 
         {puzzles.map(puzzle => (
             <span key={puzzle.puzzleId}>
