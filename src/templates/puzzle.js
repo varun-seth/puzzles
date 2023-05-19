@@ -20,7 +20,7 @@ export const query = graphql`
   }
 `
 
-const Button = ({ id, label, content, display }) => {
+const Button = ({ id, label, content, backgroundColor }) => {
   const [isHidden, setIsHidden] = useState(true);
 
   const toggleContent = () => {
@@ -32,7 +32,7 @@ const Button = ({ id, label, content, display }) => {
     <div>
       <button style={{display: `block`}} id={`${id}Button`} className={`push ${isHidden ? '' : 'pushed'}`} onClick={toggleContent}>{label}</button>
       <div id={id} className={isHidden ? 'hidden' : 'unhidden'}>
-        <div className="around">
+        <div className="around" style={{backgroundColor: backgroundColor}}>
           {content}
         </div>
       </div>
@@ -166,7 +166,8 @@ export default function Puzzle({ data, pageContext }) {
         {displayComments && 
           <Button id={`comments${puzzle.puzzleId}`} label="Comments" content={
             <div className="fb-comments" data-href={`http://brainstellar.com/puzzles/${puzzle.puzzleId}`} data-width="" data-numposts="5"></div>
-          } display={displayComments} />
+          } display={displayComments} backgroundColor={`white`}  />
+          // facebook comments plugin does not support dark theme.
         }
 
         <br />
