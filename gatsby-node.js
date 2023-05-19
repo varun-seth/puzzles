@@ -135,4 +135,11 @@ exports.createPages = async function ({ actions, graphql }) {
       }
     });
   });
+
+  // extra homepage
+  // Difficulty page
+  actions.createPage({
+    path: `puzzles/`,
+    component: require.resolve(`./src/pages/index.js`),
+  });
 };

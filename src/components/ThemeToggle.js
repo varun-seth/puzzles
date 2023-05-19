@@ -10,13 +10,11 @@ const ThemeToggle = () => {
   };
 
   return (
-    <div>
-      <select value={theme} onChange={changeTheme}>
-        <option value="auto">Auto</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </div>
+    <select value={theme} onChange={changeTheme} style={{float: `right`}}>
+      <option value="auto">Auto</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
   );
 };
 
