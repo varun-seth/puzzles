@@ -13,6 +13,8 @@ import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
 
+const MemoizedHeader = React.memo(Header);
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -37,7 +39,7 @@ const Layout = ({ children }) => {
           padding: `var(--size-gutter)`,
         }}
       >
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+        <MemoizedHeader siteTitle={data.site.siteMetadata?.title || `Title`} />
         <main
         className={`container-outer`}
         >
@@ -45,7 +47,7 @@ const Layout = ({ children }) => {
           {children}
           </div>
         </main>
-
+        <br/>
         <Footer/>
       </div>
     </>

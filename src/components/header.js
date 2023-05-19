@@ -13,20 +13,21 @@ const Header = ({ siteTitle }) => (
       {/* <img src="favicon.gif" alt="BrainStellar" align="center" /> */}
       <a href="/puzzles/" className="nav-links pagename">
         <img
-          src="../favicon.gif"
+          src="/favicon.gif"
           style={{
             border: '0px solid white',
             padding: '0px',
             marginRight: '10px',
             borderRadius: '7px',
-            height: '35px'
+            height: '35px',
+            width: '35px'
           }}
           alt="BRAINSTELLAR"
         />{' '}
         <img
-          src="../images/cover_transparent.png"
+          src="/images/cover_transparent.png"
           alt="BRAINSTELLAR"
-          style={{ position: 'relative', top: '-7px' }}
+          style={{ position: 'relative', top: '-7px', height: '20px', width: '211px' }}
         />
       </a>
 
@@ -39,10 +40,6 @@ const Header = ({ siteTitle }) => (
 
     </div>
   </div>
-
-  <button className="btn-close btn btn-sm">×</button>
-
-
 
     
 
