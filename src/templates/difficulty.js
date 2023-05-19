@@ -27,7 +27,7 @@ export default function Cateogry({ data, pageContext }) {
         <link rel="icon" href="/favicon.gif" />
         <title>{difficulty} Puzzles | Brainstellar Puzzles</title>
       </Helmet>
-      <div class="stylishpage"><div class="bord1"><div class="bord2"><div class="container">
+      <div className="stylishpage"><div className="bord1"><div className="bord2"><div className="container">
 
         {difficulty && <h2 style={{textAlign: `center`, marginTop:`1.5em`, marginBottom:`1em`}}>{difficulty} puzzles</h2>}
 

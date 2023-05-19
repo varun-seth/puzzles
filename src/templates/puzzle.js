@@ -115,8 +115,6 @@ export default function Puzzle({ data, pageContext }) {
         {difficulty && <h2 style={{ textAlign: `center`, marginTop: `1.5em`, marginBottom: `1em` }}>{difficulty} puzzles</h2>}
 
 
-        {/* <Link class="btn  btn-sm btn-medium smooth" to={`/puzzles/${puzzle.difficulty}`} title={`More ${puzzle.difficulty} puzzles`} className={"btn  btn-sm link-white smooth"}>{puzzle.difficulty}</Link> */}
-
         <br /><br />
 
         <table style={{ border: '0px solid black', width: '100%', padding: '0px', margin: '0px' }}>
@@ -142,7 +140,7 @@ export default function Puzzle({ data, pageContext }) {
 
         {puzzle.question && <div className="content-text" style={{ marginTop: `1em`, marginBottom: `1em` }}>{puzzle.question}</div>}
 
-        {puzzle.questionImage && <img src={`/puzzle-images/${puzzle.questionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'margin-left': 'auto', 'margin-right': 'auto' }} alt={`QuestionImage ${puzzle.puzzleId}`} />}
+        {puzzle.questionImage && <img src={`/puzzle-images/${puzzle.questionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'marginLeft': 'auto', 'marginRight': 'auto' }} alt={`QuestionImage ${puzzle.puzzleId}`} />}
 
         {puzzle.hint &&
           <Button id={`hint${puzzle.puzzleId}`} label="Hint" content={puzzle.hint} />
@@ -157,7 +155,7 @@ export default function Puzzle({ data, pageContext }) {
             <>
               {puzzle.solution}
               {puzzle.solutionImage &&
-                <img src={`/puzzle-images/${puzzle.solutionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'margin-left': 'auto', 'margin-right': 'auto' }} alt={`SolutionImage ${puzzle.puzzleId}`} />
+                <img src={`/puzzle-images/${puzzle.solutionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'marginLeft': 'auto', 'marginRight': 'auto' }} alt={`SolutionImage ${puzzle.puzzleId}`} />
               }
             </>
           } />
@@ -173,6 +171,7 @@ export default function Puzzle({ data, pageContext }) {
         <br />
         <div style={{ marginBottom: `50px` }}>
           <table style={{ width: `100%`, tableLayout: `fixed` }}>
+          <tbody>
             <tr>
               <td>
 
@@ -185,7 +184,7 @@ export default function Puzzle({ data, pageContext }) {
               <td style={{ textAlign: `center` }}>
                 <span style={{ display: `inline-block` }}>
                   <input id="checkbox1" type="checkbox" checked={displayComments} onChange={toggleCommentsDisplay} />
-                  <label for="checkbox1"> Enable comments</label>
+                  <label htmlFor="checkbox1"> Enable comments</label>
                 </span>
               </td>
 
@@ -197,6 +196,7 @@ export default function Puzzle({ data, pageContext }) {
               </td>
 
             </tr>
+            </tbody>
           </table>
         </div>
         <br /><br />

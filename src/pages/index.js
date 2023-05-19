@@ -1,6 +1,5 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -69,7 +68,7 @@ const IndexPage = ({ data }) => {
 
         
 
-        <div class="stylishpage"> <div class="bord1"><div class="bord2">
+        <div className="stylishpage"> <div className="bord1"><div className="bord2">
           <h2>All Puzzles</h2>
           {/* This section has all puzzles ordered from oldest to newest. This is the order I discovered them in. */}
 
