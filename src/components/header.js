@@ -5,23 +5,46 @@ import ThemeToggle from "./ThemeToggle"
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      margin: `0 auto`,
-      padding: `var(--space-4) var(--size-gutter)`,
-      display: `flex`,
-      alignItems: `center`,
-      justifyContent: `space-between`,
     }}
   >
-    <Link
-      to="/"
-      style={{
-        fontSize: `var(--font-sm)`,
-        textDecoration: `none`,
-      }}
-    >
-      {siteTitle}
-    </Link>
-    <ThemeToggle />
+
+  <div className="nav" tabIndex="-1" >
+    <div className="container-nav">
+      {/* <img src="favicon.gif" alt="BrainStellar" align="center" /> */}
+      <a href="/puzzles/" className="nav-links pagename">
+        <img
+          src="../favicon.gif"
+          style={{
+            border: '0px solid white',
+            padding: '0px',
+            marginRight: '10px',
+            borderRadius: '7px',
+            height: '35px'
+          }}
+          alt="BRAINSTELLAR"
+        />{' '}
+        <img
+          src="../images/cover_transparent.png"
+          alt="BRAINSTELLAR"
+          style={{ position: 'relative', top: '-7px' }}
+        />
+      </a>
+
+      <Link to="/puzzles/easy" className="nav-links">Easy</Link>
+      <Link to="/puzzles/medium" className="nav-links">Medium</Link>
+      <Link to="/puzzles/hard" className="nav-links">Hard</Link>
+      <Link to="/puzzles/deadly" className="nav-links">Deadly</Link>
+
+      <ThemeToggle />
+
+    </div>
+  </div>
+
+  <button className="btn-close btn btn-sm">×</button>
+
+
+
+    
 
   </header>
 )

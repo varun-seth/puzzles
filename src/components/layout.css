@@ -658,23 +658,23 @@ input[type='text'] {
 
 .nav,
 .nav .current {
-  background: var(--color-text);
-  color: var(--color-background);
-  background-image: url('/img/background_20p.png');
+  background: black;
+  color: white;
+  background-image: url('/images/background_black.png');
 }
 
 
 .nav a:hover,
 .nav a:active,
 .nav a:focus {
-  color: var(--color-background);
+  color: white;
 }
 
 .nav-links:hover,
 .nav-links:active,
 .nav-links:focus {
   background: #c00;
-  background-image: url('/img/red-back4.png');
+  background-image: url('/images/background_red.png');
   background-size: 4px 4px;
 }
 
