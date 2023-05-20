@@ -46,7 +46,6 @@ const Button = ({ id, label, content, backgroundColor, onToggle}) => {
 export default function Puzzle({ data, pageContext }) {
   const puzzle = data.puzzlesYaml
   const { previousPuzzleRoute, nextPuzzleRoute, category, difficulty } = pageContext
-  const [displayComments, setDisplayComments] = useState(false);
 
   useEffect(() => {
     document.querySelectorAll('.push').forEach(button => {
@@ -64,13 +63,6 @@ export default function Puzzle({ data, pageContext }) {
     })
 
   }, [])
-
-  useEffect(() => {
-    // Load stored display state from localStorage
-    const storedDisplayState = localStorage.getItem('displayComments');
-    setDisplayComments(storedDisplayState === 'true');
-  }, []);
-
   
     const loadFacebookComments = () => {
       if (window.FB) {
@@ -95,11 +87,6 @@ export default function Puzzle({ data, pageContext }) {
     };
 
 
-
-  const toggleCommentsDisplay = () => {
-    setDisplayComments(!displayComments);
-    localStorage.setItem('displayComments', !displayComments);
-  }
 
   return (
     <Layout>
