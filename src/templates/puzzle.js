@@ -20,11 +20,12 @@ export const query = graphql`
   }
 `
 
-const Button = ({ id, label, content, backgroundColor }) => {
+const Button = ({ id, label, content, backgroundColor, onToggle}) => {
   const [isHidden, setIsHidden] = useState(true);
 
   const toggleContent = () => {
     setIsHidden(!isHidden);
+    onToggle && onToggle(); // Call the onToggle prop if it exists
   };
 
   return (
@@ -70,7 +71,7 @@ export default function Puzzle({ data, pageContext }) {
     setDisplayComments(storedDisplayState === 'true');
   }, []);
 
-  useEffect(() => {
+  
     const loadFacebookComments = () => {
       if (window.FB) {
         window.FB.XFBML.parse(); // Reload the comments plugin
@@ -93,10 +94,7 @@ export default function Puzzle({ data, pageContext }) {
       }
     };
 
-    if (displayComments) {
-      loadFacebookComments();
-    }
-  }, [displayComments]);
+
 
   const toggleCommentsDisplay = () => {
     setDisplayComments(!displayComments);
@@ -160,13 +158,16 @@ export default function Puzzle({ data, pageContext }) {
             </>
           } />
         }
-
-        {displayComments && 
-          <Button id={`comments${puzzle.puzzleId}`} label="Comments" content={
-            <div className="fb-comments" data-href={`http://brainstellar.com/puzzles/${puzzle.puzzleId}`} data-width="" data-numposts="5"></div>
-          } display={displayComments} backgroundColor={`white`}  />
-          // facebook comments plugin does not support dark theme.
-        }
+        
+        <Button 
+        id={`comments${puzzle.puzzleId}`} 
+        label="Comments" 
+        content={
+          <div className="fb-comments" data-href={`http://brainstellar.com/puzzles/${puzzle.puzzleId}`} data-width="" data-numposts="5"></div>
+        } 
+        onToggle={loadFacebookComments}  // onToggle is a new prop
+        backgroundColor={`white`} 
+      />
 
         <br />
         <div style={{ marginBottom: `50px` }}>
@@ -181,13 +182,7 @@ export default function Puzzle({ data, pageContext }) {
                 )}
               </td>
 
-              <td style={{ textAlign: `center` }}>
-                <span style={{ display: `inline-block` }}>
-                  <input id="checkbox1" type="checkbox" checked={displayComments} onChange={toggleCommentsDisplay} />
-                  <label htmlFor="checkbox1"> Enable comments</label>
-                </span>
-              </td>
-
+              {/* like button here */}
               <td>
 
                 {nextPuzzleRoute && (
