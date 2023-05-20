@@ -163,7 +163,14 @@ export default function Puzzle({ data, pageContext }) {
         id={`comments${puzzle.puzzleId}`} 
         label="Comments" 
         content={
+          <>
+          <div className="fb-like" data-href={`http://brainstellar.com/puzzles/${puzzle.puzzleId}`} data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+          <div className="fb-save" 
+              data-uri={`http://brainstellar.com/puzzles/${puzzle.puzzleId}`} 
+              data-size="small">
+          </div>
           <div className="fb-comments" data-href={`http://brainstellar.com/puzzles/${puzzle.puzzleId}`} data-width="" data-numposts="5"></div>
+          </>
         } 
         onToggle={loadFacebookComments}  // onToggle is a new prop
         backgroundColor={`white`} 
