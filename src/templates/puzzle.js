@@ -8,6 +8,7 @@ import html from 'remark-html'
 import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
 import Button from '../components/Button';
+import FacebookComments from '../components/FacebookComments';
 
 async function convertMarkdownToHtml(markdown) {
   const result = await remark()
@@ -76,27 +77,6 @@ export default function Puzzle({ data, pageContext }) {
 
   }, [])
   
-    const loadFacebookComments = () => {
-      if (window.FB) {
-        window.FB.XFBML.parse(); // Reload the comments plugin
-      } else {
-        window.fbAsyncInit = function () {
-          window.FB.init({
-            appId: '685807501512723',
-            cookie: true,
-            xfbml: true,
-            version: 'v12.0'
-          });
-        };
-        (function (d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) { return; }
-          js = d.createElement(s); js.id = id;
-          js.src = "https://connect.facebook.net/en_US/sdk.js";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-      }
-    };
 
 
 
@@ -164,22 +144,8 @@ export default function Puzzle({ data, pageContext }) {
           } />
         }
         
-        <Button 
-        id={`comments${puzzle.puzzleId}`} 
-        label="Comments" 
-        content={
-          <>
-          <div className="fb-like" data-href={`http://brainstellar.com/puzzles/${puzzle.puzzleId}`} data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
-          <div className="fb-save" 
-              data-uri={`http://brainstellar.com/puzzles/${puzzle.puzzleId}`} 
-              data-size="small">
-          </div>
-          <div className="fb-comments" data-href={`http://brainstellar.com/puzzles/${puzzle.puzzleId}`} data-width="" data-numposts="5"></div>
-          </>
-        } 
-        onToggle={loadFacebookComments}  // onToggle is a new prop
-        backgroundColor={`white`} 
-      />
+        <FacebookComments puzzleId={puzzle.puzzleId} />
+
 
         <br />
         <div style={{ marginBottom: `50px` }}>
