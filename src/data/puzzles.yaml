@@ -385,7 +385,7 @@
     "difficulty": "medium",
     "category": "discrete",
     "source": "CSEblog",
-    "question": "A. B & C live together and share everything equally. One day A brings home 5 logs of wood, B brings 3 logs and C brings none. Then they use the wood to cook together and share the food. Since C did not bring any wood, he gives $8 instead. How much to A and how much to B?",
+    "question": "A. B & C live together and share everything equally. One day A brings home 5 logs of wood, B brings 3 logs and C brings none. Then they use the wood to cook together and share the food. Since C did not bring any wood, he gives \\$8 instead. How much to A and how much to B?",
     "hint": "Its not 5 & 3",
     "solution": "Since each person consumed 8\/3 woods. A gave 5-8\/3 = 7\/3 woods to C and B gave 3-8\/3 = 1\/3 woods to C.\nSo, Out of the 8 dollars, A gets 7 and B gets 1 ",
   },
@@ -449,10 +449,14 @@
     "difficulty": "medium",
     "category": "strategy",
     "source": "P. Winkler",
-    "question": 'After the revolution, each of the 66 citizens of a certain city, including the king, has a salary of 1. King cannot vote, but has the power to suggest changes - namely, redistribution of salaries. Each person''s salary must be a whole number of dollars, and the salaries must sum to 66. He suggests a new salary plan for every person including himelf in front of the city. Citizens are greedy, and vote yes if their salary is raised, no if decreased, and don''t vote otherwise.  The suggested plan will be implemented if the number of "yes" votes are more than "no" votes. The king is both, selfish and clever. He proposes a series of such plans. What is the maximum salary he can obtain for himself?',
+    "question": 'After the revolution, each of the 66 citizens of a certain city, including the king, has a salary of 1. King cannot vote, but has the power to suggest changes - namely, redistribution of salaries. Each person''s salary must be a whole number of dollars, and the salaries must sum to 66. He suggests a new salary plan for every person including himself in front of the city. Citizens are greedy, and vote yes if their salary is raised, no if decreased, and don''t vote otherwise.  The suggested plan will be implemented if the number of "yes" votes are more than "no" votes. The king is both, selfish and clever. He proposes a series of such plans. What is the maximum salary he can obtain for himself?',
     "hint": "notice:  (1) that the king must temporarily give up his own salary to get things started, and (2) that the game is to reduce the number of salaried citizens at each stage.",
     "answer": 63,
-    "solution": "Continuing from hint, The king begins by proposing that 33 citizens have their salaries doubled to $2, at the expense of the remaining 33 (himself included). Next, he increases the salaries of 17 of the 33 salaried voters (to $3 or $4) while reducing the remaining 16 to $0. In successive turns, the number of salaried voters falls to 9, 5, 3, and 2. Finally, the king bribes three paupers with $1 each to help him turn over the two big salaries to himself, thus finishing with a royal salary of $63. It is not difficult to see that the king can do no better at any stage than to reduce the number of salaried voters to just over half the previous number; in particular, he can never achieve a unique salaried voter. Thus, he can do no better than $63 for himself, and the six rounds above are optimal",
+    "solution":
+      "Continuing from the hint, The king begins by proposing that 33 citizens have their salaries doubled to \\$2, at the expense of the remaining 33 (himself included). Next, he increases the salaries of 17 of the 33 salaried voters (to \\$3 or \\$4) while reducing the remaining 16 to \\$0. In successive turns, the number of salaried voters falls to 9, 5, 3, and 2. Finally, the king bribes three paupers with \\$1 each to help him turn over the two big salaries to himself, thus finishing with a royal salary of \\$63. It is not difficult to see that the king can do no better at any stage than to reduce the number of salaried voters to just over half the previous number; in particular, he can never achieve a unique salaried voter. Thus, he can do no better than \\$63 for himself, and the six rounds above are optimal\n\n
+      Note: It is possible to reach \\$65 if the King could vote (watchout for variants!).\n\n
+      PS: This still puzzles me to this day that even people who can't vote can have so much influence.
+      ",
   },
   {
     "puzzleId": 111,
@@ -903,9 +907,11 @@
     "difficulty": "medium",
     "category": "probability",
     "source": "P. Winkler",
-    "question": "You have an opportunity to make one bid on an object, whose value to its owner is, as far as you know, uniformly random integer between $0 and $100. What you do know is that you are so much better at operating the widget than he is, that its value to you is 80% greater than its value to him. If you offer more than the widget is worth to the owner, he will sell it. But you get only one shot. How much should you bid? For example, if its actual value is $10, you bid & win at $11, and sell it for $18, making profit. But if you bid more than $18, you make lose! But since u don't know how much its actual price is, how do u bid in order to make some profit?",
-    "hint": "Consider the case he already won the bid at $x. What happens next?",
-    "solution": "CSEBLOG: We should bet only 0! (dont bet!) Suppose I bet $x and get the widget. So, the value of it for the owner would be $y, uniformly distributed between 0 and x. So, its value for me is $1.8y. Expected value for me is 1.8* Expected value of y = 1.8*x\/2= 0.9x\n\nSo, if I get, expected value of the widget for me is 0.9x$ paying x$.\n\nIf x is less, i.e I am not getting it, I did not gain\/lose anything.\n\nSo, overall I am losing. So, I should not bid.",
+    "question": "You have an opportunity to make one bid on an object, whose value to its owner is, as far as you know, uniformly random integer between \\$0 and \\$100. What you do know is that you are so much better at operating the widget than he is, that its value to you is 80% greater than its value to him. If you offer more than the widget is worth to the owner, he will sell it. But you get only one shot. How much should you bid? For example, if its actual value is \\$10, you bid & win at \\$11, and sell it for \\$18, making profit. But if you bid more than \\$18, you make lose! But since you don't know how much its actual price is, how do you bid in order to make some profit?",
+    "hint": "Consider the case he already won the bid at \\$x. What happens next?",
+    "solution":
+      "CSEBLOG: We should bet only 0! (dont bet!) Suppose I bet \\$x and get the widget. So, the value of it for the owner would be \\$y, uniformly distributed between 0 and x. So, its value for me is \\$1.8y. Expected value for me is 1.8* Expected value of y = 1.8*x\/2= 0.9x\n\n
+      So, if I get, expected value of the widget for me is 0.9x \\$ paying x \\$.\n\nIf x is less, i.e I am not getting it, I did not gain\/lose anything.\n\nSo, overall I am losing. So, I should not bid.",
   },
   {
     "puzzleId": 1005,
