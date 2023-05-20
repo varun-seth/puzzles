@@ -7,6 +7,7 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
+import Button from '../components/Button';
 
 async function convertMarkdownToHtml(markdown) {
   const result = await remark()
@@ -17,7 +18,7 @@ async function convertMarkdownToHtml(markdown) {
 
 const ComponentToDisplayMarkdown = ({ markdown }) => {
   const [content, setContent] = React.useState('');
-  
+
   React.useEffect(() => {
     const processMarkdown = async () => {
       const htmlContent = await convertMarkdownToHtml(markdown);
@@ -52,27 +53,6 @@ export const query = graphql`
   }
 `
 
-const Button = ({ id, label, content, backgroundColor, onToggle}) => {
-  const [isHidden, setIsHidden] = useState(true);
-
-  const toggleContent = () => {
-    setIsHidden(!isHidden);
-    onToggle && onToggle(); // Call the onToggle prop if it exists
-  };
-
-  return (
-    <>
-    <div>
-      <button style={{display: `inline-block`}} id={`${id}Button`} className={`push ${isHidden ? '' : 'pushed'}`} onClick={toggleContent}>{label}</button>
-      <div id={id} className={isHidden ? 'hidden' : 'unhidden'}>
-        <div className="around" style={{backgroundColor: backgroundColor}}>
-          {content}
-        </div>
-      </div>
-    </div>
-    </>
-  );
-}
 
 
 export default function Puzzle({ data, pageContext }) {
