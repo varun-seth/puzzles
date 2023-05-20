@@ -23,41 +23,41 @@ const IndexPage = ({ data }) => {
                 <h2 style={{ textAlign: 'center' }}>Select an Album</h2>
                 <div style={{ padding: '0px', margin: '0px', textAlign: 'center' }}>
                   <span>
-                  
-                  <Link to="/puzzles/easy" className="btn btn-greygreen btn-scalegrey activewhite smooth">
-                    <img src="/images/easy.png" alt=" " /> <br />
-                    Easy Puzzles
-                  </Link>
-                  <Link to="/puzzles/medium" className="btn btn-greyblue btn-scalegrey activewhite smooth">
-                    <img src="/images/medium.png" alt=" " /> <br />
-                    Medium Puzzles
-                  </Link>
-                  <Link to="/puzzles/hard" className="btn btn-greyred btn-scalegrey activewhite smooth">
-                    <img src="/images/hard.png" alt=" " /> <br />
-                    Hard Puzzles
-                  </Link>
-              
+
+                    <Link to="/puzzles/easy" className="btn btn-greygreen btn-scalegrey activewhite smooth">
+                      <img src="/images/easy.png" alt=" " /> <br />
+                      Easy Puzzles
+                    </Link>
+                    <Link to="/puzzles/medium" className="btn btn-greyblue btn-scalegrey activewhite smooth">
+                      <img src="/images/medium.png" alt=" " /> <br />
+                      Medium Puzzles
+                    </Link>
+                    <Link to="/puzzles/hard" className="btn btn-greyred btn-scalegrey activewhite smooth">
+                      <img src="/images/hard.png" alt=" " /> <br />
+                      Hard Puzzles
+                    </Link>
+
                   </span>
                   <span>
 
 
-                  <Link to="/puzzles/discrete" className="btn btn-grey1 btn-scalegrey activewhite smooth">
-                    <img src="/images/discrete.png" alt=" " /> <br />
-                    Discrete Maths
-                  </Link>
-                  <Link to="/puzzles/probability" className="activewhite btn btn-grey2 btn-scalegrey smooth" >
-                    <img alt=" " src="/images/probability.png" /> <br />
-                    Probability Puzzles
-                  </Link>
+                    <Link to="/puzzles/discrete" className="btn btn-grey1 btn-scalegrey activewhite smooth">
+                      <img src="/images/discrete.png" alt=" " /> <br />
+                      Discrete Maths
+                    </Link>
+                    <Link to="/puzzles/probability" className="activewhite btn btn-grey2 btn-scalegrey smooth" >
+                      <img alt=" " src="/images/probability.png" /> <br />
+                      Probability Puzzles
+                    </Link>
 
-                  <Link to="/puzzles/strategy" className="activewhite btn btn-grey3 btn-scalegrey smooth" >
-                    <img alt=" " src="/images/strategy.png" /> <br />
-                    Strategy Puzzles
-                  </Link>
-                  <Link to="/puzzles/general" className="activewhite btn btn-grey4 btn-scalegrey smooth" >
-                    <img alt=" " src="/images/general.png" /> <br />
-                    General Tricks
-                  </Link>
+                    <Link to="/puzzles/strategy" className="activewhite btn btn-grey3 btn-scalegrey smooth" >
+                      <img alt=" " src="/images/strategy.png" /> <br />
+                      Strategy Puzzles
+                    </Link>
+                    <Link to="/puzzles/general" className="activewhite btn btn-grey4 btn-scalegrey smooth" >
+                      <img alt=" " src="/images/general.png" /> <br />
+                      General Tricks
+                    </Link>
                   </span>
 
                 </div>
@@ -67,7 +67,7 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
 
-        
+
 
         <div className="stylishpage"> <div className="bord1"><div className="bord2">
           <h2>All Puzzles</h2>
@@ -83,7 +83,7 @@ const IndexPage = ({ data }) => {
         <div className="stylishpage">
           <div className="bord1" style={{ margin: 0, padding: 0 }}>
             <div className="bord2" style={{ margin: 0, padding: 0 }}>
-              <div className="container" style={{textAlign: `justify`}}>
+              <div className="container" style={{ textAlign: `justify` }}>
                 <br />
                 <h3> About BRAINSTELLAR </h3>
                 Brainstellar gives step-wise approach to interview puzzles and written tests for analytics and Quant jobs. The puzzles are divided into various albums: Easy, Medium, Hard, Probability, Discrete Maths, Strategy puzzles and General Tricks. In each album the puzzles start from easy to difficult level. Even in easy puzzles album, puzzles are sorted in a conceptual way. Every puzzle is unique and logical, requiring minimal calculations.

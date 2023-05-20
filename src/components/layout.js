@@ -41,14 +41,14 @@ const Layout = ({ children }) => {
       >
         <MemoizedHeader siteTitle={data.site.siteMetadata?.title || `Title`} />
         <main
-        className={`container-outer`}
+          className={`container-outer`}
         >
           <div className={`row`}>
-          {children}
+            {children}
           </div>
         </main>
-        <br/>
-        <Footer/>
+        <br />
+        <Footer />
       </div>
     </>
   )

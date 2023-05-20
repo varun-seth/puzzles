@@ -76,7 +76,7 @@ export default function Puzzle({ data, pageContext }) {
     })
 
   }, [])
-  
+
 
 
 
@@ -123,8 +123,8 @@ export default function Puzzle({ data, pageContext }) {
 
         {puzzle.hint &&
           <Button id={`hint${puzzle.puzzleId}`} label="Hint" content={
-          <span className="one-liner"><ComponentToDisplayMarkdown markdown={puzzle.hint} /></span>
-        } />
+            <span className="one-liner"><ComponentToDisplayMarkdown markdown={puzzle.hint} /></span>
+          } />
         }
 
         {puzzle.answer &&
@@ -143,32 +143,32 @@ export default function Puzzle({ data, pageContext }) {
             </>
           } />
         }
-        
+
         <FacebookComments puzzleId={puzzle.puzzleId} />
 
 
         <br />
         <div style={{ marginBottom: `50px` }}>
           <table style={{ width: `100%`, tableLayout: `fixed` }}>
-          <tbody>
-            <tr>
-              <td>
+            <tbody>
+              <tr>
+                <td>
 
-                {/* TODO: fix this margin */}
-                {previousPuzzleRoute && (
-                  <Link style={{ float: `left` }} to={previousPuzzleRoute} className={"btn  btn-sm link-white smooth"}>Previous</Link>
-                )}
-              </td>
+                  {/* TODO: fix this margin */}
+                  {previousPuzzleRoute && (
+                    <Link style={{ float: `left` }} to={previousPuzzleRoute} className={"btn  btn-sm link-white smooth"}>Previous</Link>
+                  )}
+                </td>
 
-              {/* like button here */}
-              <td>
+                {/* like button here */}
+                <td>
 
-                {nextPuzzleRoute && (
-                  <Link style={{ float: `right` }} to={nextPuzzleRoute} className={"btn  btn-sm link-white smooth"}>Next Puzzle</Link>
-                )}
-              </td>
+                  {nextPuzzleRoute && (
+                    <Link style={{ float: `right` }} to={nextPuzzleRoute} className={"btn  btn-sm link-white smooth"}>Next Puzzle</Link>
+                  )}
+                </td>
 
-            </tr>
+              </tr>
             </tbody>
           </table>
         </div>
