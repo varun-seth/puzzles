@@ -94,6 +94,14 @@ const IndexPage = ({ data }) => {
                 <a href="https://www.facebook.com/BrainStellarPuzzles/" className="btn btn-sm" style={{ padding: 'auto', marginTop: 20, textAlign: 'center' }}>
                   Brainstellar on facebook
                 </a>
+                <h3> About the Author </h3>
+                Feel free to connect with me on various platforms.
+                <a href="https://www.linkedin.com/in/varun-seth-428072204/" className="btn btn-sm" style={{ padding: 'auto', marginTop: 20, textAlign: 'center' }}>
+                  Varun Seth on LinkedIn
+                </a>
+                <a href="https://github.com/varun-seth" className="btn btn-sm" style={{ padding: 'auto', marginTop: 20, textAlign: 'center' }}>
+                  Varun Seth on Github
+                </a>
                 <br />
                 <br />
               </div>
