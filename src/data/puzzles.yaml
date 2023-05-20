@@ -464,8 +464,30 @@
     "difficulty": "medium",
     "category": "discrete",
     "source": "Top Quant Interview",
-    "question": "At a party of N people, some have a symmetric friendship. Symmetric means that if A is friends with B, then B is in turn friends with A. Prove that there are at-least two people with same number of friends. ",
-    "solution": " ",
+    "question": "At a party of $N \\ge 2$ people, there are some friendships.
+      Prove that there are at-least two people with the same count of friends.\n\n
+      Assume that the friendships are symmetric, i.e, if $A$ is friends with $B$, then $B$ is in turn friends with $A$. ",
+    "hint": "Pigeonhole Principle",
+    "answer": "Since there are $N-1$ possibilities for friend-count and total $N$ people, atleast two people must have the same count.",
+    "solution": "
+      The question can be solved by using the Pigeonhole Principle, which essentially states that if there are more pigeons than pigeonholes, then there must be at least one pigeonhole with more than one pigeon.\n\n
+
+      In this party of $N$ people, indexed from $1$ to $N$. The maximum number of friends a person can have is $N-1$, because one can be friends with every other person but not with oneself. So the possible number of friends one can have ranges from $0$ to $N-1$, a total of $N$ possibilities.\n\n
+
+      Note: If someone has zero friends, then someone else can have atmost $N-2$ friends, alternatively if someone has $N-1$ friends then someone else must have at-least $1$ friends.\n\n
+
+      Hence, the total possibilities of the count of friends ranges from $0$ to $N-2$ or from $1$ to $N-1$, i.e, total $N-1$ possibilities, but there are only $N$ people at the party. \n\n
+
+      Let's consider the count of friends as \"pigeonholes\" and people as \"pigeons\". Notice that there are $N$ people (\"pigeons\") and $N - 1$ different count of friends (\"pigeonholes\").\n\n
+
+      So, by the Pigeonhole Principle, at least two people must have the same count of friends in the party of $N$ people.\n\n
+
+      There's another way to solve this.\n\n
+
+      **Proof by Contradiction**:
+      Assume that every person has a different number of friends from $0$ to $N - 1$.
+      We would have a situation where one person has $0$ friends and another person has $N-1$ friends. This, however, contradicts the premise that friendships are symmetric, because if one person has $N-1$ friends, there cannot be someone with $0$ friends. Hence not everyone has a different number of friends
+      ",
   },
   {
     "puzzleId": 112,
