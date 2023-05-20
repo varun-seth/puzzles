@@ -2,39 +2,26 @@ import React, { useEffect, useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
 import { Helmet } from "react-helmet";
-import ReactMarkdown from 'react-markdown'
-import { remark } from 'remark'
-import html from 'remark-html'
-import rehypeKatex from 'rehype-katex'
-import rehypeRaw from 'rehype-raw'
 import Button from '../components/Button';
 import FacebookComments from '../components/FacebookComments';
 
-async function convertMarkdownToHtml(markdown) {
-  const result = await remark()
-    .use(html)
-    .process(markdown);
-  return result.toString();
-}
+import ReactMarkdown from 'react-markdown'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css'; // important: this styles the math output
 
-const ComponentToDisplayMarkdown = ({ markdown }) => {
-  const [content, setContent] = React.useState('');
 
-  React.useEffect(() => {
-    const processMarkdown = async () => {
-      const htmlContent = await convertMarkdownToHtml(markdown);
-      setContent(htmlContent);
-    }
-    processMarkdown();
-  }, [markdown]);
 
-  return (
-    <ReactMarkdown
-      children={content}
-      rehypePlugins={[rehypeRaw, rehypeKatex]}
-    />
-  );
-}
+const ComponentToDisplayMarkdown = ({ markdown }) => (
+  <ReactMarkdown
+    children={markdown}
+    remarkPlugins={[remarkMath]}
+    rehypePlugins={[rehypeKatex]}
+  />
+);
+
+
+
 
 
 export const query = graphql`
