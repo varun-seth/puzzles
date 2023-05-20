@@ -52,7 +52,9 @@ const FacebookComments = ({ puzzleId }) => {
             data-uri={URL}
             data-size="small">
           </div>
-          <div className="fb-comments" data-href={URL} data-width="" data-numposts="5"></div>
+          <div>
+            <div className="fb-comments" data-href={URL} data-width="" data-numposts="5"></div>
+          </div>
         </>
       }
       onToggle={null}

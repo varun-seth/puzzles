@@ -312,7 +312,11 @@
     "source": "Written Test",
     "question": "A father claims about snowfall last night. First daughter tells that the probability of snowfall on a particular night is 1\/8. Second daughter tells that 5 out of 6 times the father is lying! What is the probability that there actually was a snowfall?",
     "hint": "Conditional Probability or Baye's Theorem",
-    "solution": "Let S = Snowfall occurred, and C = Claim\nProbability of (Snowfall given Claim) = P(S | C) = P(C|S)*P(S)\/P(C)\nNow, P(C|S) = 1\/6,  P(S) = 1\/8\nP(C ) = P(true claim) + P(False Claim) = P(C|S)*P(S) + P( false claim|no snow)*P(no snow)\nThis is same as [1\/6*1\/8]\/[ 1\/6*1\/8 + 7\/8*5\/6] = 1\/36",
+    "solution": "Let S = Snowfall occurred, and C = Claim\n\n
+      Probability of (Snowfall given Claim) = $P(S | C) = \\frac{P(C|S)*P(S)}{P(C)}$\n\n
+      $P(C|S) = 1\/6$,  $P(S) = 1\/8$\n\n
+      $P(C)$ = P(true claim) + P(False Claim) = $P(C|S)*P(S)$ + $P($ false claim | no snow) * P(no snow)\n\n
+      This is same as $[1\/6*1\/8]\/[ 1\/6*1\/8 + 7\/8*5\/6] = 1\/36$",
   },
   {
     "puzzleId": 29,
