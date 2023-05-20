@@ -1036,8 +1036,24 @@
     "difficulty": "hard",
     "category": "probability",
     "source": "Placement test",
-    "question": 'You are given an urn with 100 balls (50 black and 50 white). You pick balls from urn one by one without replacements until all the balls are out. A black followed by a white or a white followed by a black is "a colour change". Calculate the expected number of colour changes if the balls are being picked randomly from the urn.',
+    "question": 'You are given an urn with 100 balls (50 black and 50 white). You pick balls from urn one by one without replacements until all the balls are out. A black followed by a white or a white followed by a black is "a colour change". Calculate the expected number of colour-changes if the balls are being picked randomly from the urn.',
     "hint": "Linearity of expectation",
-    "solution": "There are 99 positions. Let X_i be a random variable taking value 1 if i_th position has a colour change and zero otherwise.\n\nWe have to find expected value of E[X_1 + X_2 + ... + X_99]\n\nSince all X_i are equivalent, the answer is 99*E[X_i]\n\nE[X_i] = ((50\/100)*(50\/99)+(50\/100)*(50\/99)) = 50\/99\n\nSo, Answer is 50.",
+    "answer": "50",
+    "solution": "
+      Each time we draw, there could be a possible color-switch, except the first time we draw, hence 99 possible switches.\n\n
+      Let $X_i$ be a random variable taking value 1 if $i_{th}$ position has a colour change and zero otherwise, note that $i$ goes from $1$ to $99$.\n\n
+      Total number of changes, $S = X_1 + X_2 + ... + X_{99} = \\sum_{i=1}^{99} X_i$\n\n
+      The expected number of color changes is denoted by the sum of these variables, i.e $E[S] = E[X_1 + X_2 + ... + X_{99}]$\n\n
+      Linearity of expectation states that the expected value of the sum of random variables is equal to the sum of their individual expected values.\n\n
+      Hence the answer is $E[S] = E[X_1] + E[X_2] + ... + E[X_{99}]$ \n\n
+      Note that each $X_i$ is identical, and the expected value is equal for each $i$, i.e, $E(X_k) = E(X_1) $\n\n
+      Hence $E[S] = E[X_1] + ... + E[X_n] = \\sum_{i=1}^{99} E[X_1] = 99 * E[X_1] $\n\n
+      Also, we can calculate the expected value, $E[X_1] = 1 * P(X_1 = 1) + 0 * P(X_1 = 0) = P(X_1 =1) $\n\n
+      Probability of any given color change is (either first is R second is B, or first is B and second is R)
+      $= P(X_1 = 1)= \\dfrac{50}{100}*\\dfrac{50}{99} + \\dfrac{50}{100}*\\dfrac{50}{99} = 50\/99$\n\n
+      Finally, the answer is $ E[S] = \\sum_{i=1}^{99} E[X_i] = 99 * E[X_1] = 99 * 50/99 = 50$
+      \n\n
+      PS: $X_i$'s are not independent, but since all the balls are drawn randomly, the probability-distribution is identical for each draw. For instance, if you are given no information about the previous colors, and I ask 'what is the probability that 5th draw has a color change?', your answer will not depend on '5', instead the answer will be same for any index.
+      ",
   },
 ]
