@@ -23,85 +23,9 @@ body {
   color: var(--color-text);
 }
 
-li>ol,
-li>ul {
-  margin-bottom: calc(var(--space-4) / 2);
-  margin-left: var(--space-4);
-  margin-top: calc(var(--space-4) / 2);
+.one-liner p{
+  margin: 0; /*prevent paragraphs in markdown*/
 }
-
-blockquote *:last-child {
-  margin-bottom: 0;
-}
-
-li *:last-child {
-  margin-bottom: 0;
-}
-
-p *:last-child {
-  margin-bottom: 0;
-}
-
-li>p {
-  margin-bottom: calc(var(--space-4) / 2);
-}
-
-p {
-  max-width: 680px;
-}
-
-code {
-  font-size: 0.875rem;
-}
-
-kbd {
-  font-size: 0.875rem;
-}
-
-samp {
-  font-size: 0.875rem;
-}
-
-abbr {
-  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-  cursor: help;
-}
-
-acronym {
-  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-  cursor: help;
-}
-
-tt,
-code {
-  background-color: var(--color-code-bg);
-  border-radius: var(--border-radius);
-  color: var(--color-code);
-  font-family: var(--font-mono);
-  padding-bottom: 0.25em;
-  padding-top: 0.25em;
-  word-break: normal;
-}
-
-pre code {
-  background: none;
-}
-
-code:before,
-code:after,
-tt:before,
-tt:after {
-  content: "\00a0";
-  letter-spacing: -0.2em;
-}
-
-pre code:before,
-pre code:after,
-pre tt:before,
-pre tt:after {
-  content: none;
-}
-
 
 body,
 textarea,

@@ -2,6 +2,38 @@ import React, { useEffect, useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
 import { Helmet } from "react-helmet";
+import ReactMarkdown from 'react-markdown'
+import { remark } from 'remark'
+import html from 'remark-html'
+import rehypeKatex from 'rehype-katex'
+import rehypeRaw from 'rehype-raw'
+
+async function convertMarkdownToHtml(markdown) {
+  const result = await remark()
+    .use(html)
+    .process(markdown);
+  return result.toString();
+}
+
+const ComponentToDisplayMarkdown = ({ markdown }) => {
+  const [content, setContent] = React.useState('');
+  
+  React.useEffect(() => {
+    const processMarkdown = async () => {
+      const htmlContent = await convertMarkdownToHtml(markdown);
+      setContent(htmlContent);
+    }
+    processMarkdown();
+  }, [markdown]);
+
+  return (
+    <ReactMarkdown
+      children={content}
+      rehypePlugins={[rehypeRaw, rehypeKatex]}
+    />
+  );
+}
+
 
 export const query = graphql`
   query($puzzleId: Int!) {
@@ -31,7 +63,7 @@ const Button = ({ id, label, content, backgroundColor, onToggle}) => {
   return (
     <>
     <div>
-      <button style={{display: `block`}} id={`${id}Button`} className={`push ${isHidden ? '' : 'pushed'}`} onClick={toggleContent}>{label}</button>
+      <button style={{display: `inline-block`}} id={`${id}Button`} className={`push ${isHidden ? '' : 'pushed'}`} onClick={toggleContent}>{label}</button>
       <div id={id} className={isHidden ? 'hidden' : 'unhidden'}>
         <div className="around" style={{backgroundColor: backgroundColor}}>
           {content}
@@ -123,22 +155,28 @@ export default function Puzzle({ data, pageContext }) {
           </tbody>
         </table>
 
-        {puzzle.question && <div className="content-text" style={{ marginTop: `1em`, marginBottom: `1em` }}>{puzzle.question}</div>}
+        {puzzle.question && <div className="content-text" style={{ marginTop: `1em`, marginBottom: `1em` }}>
+          <ComponentToDisplayMarkdown markdown={puzzle.question} />
+        </div>}
 
         {puzzle.questionImage && <img src={`/puzzle-images/${puzzle.questionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'marginLeft': 'auto', 'marginRight': 'auto' }} alt={`QuestionImage ${puzzle.puzzleId}`} />}
 
         {puzzle.hint &&
-          <Button id={`hint${puzzle.puzzleId}`} label="Hint" content={puzzle.hint} />
+          <Button id={`hint${puzzle.puzzleId}`} label="Hint" content={
+          <span className="one-liner"><ComponentToDisplayMarkdown markdown={puzzle.hint} /></span>
+        } />
         }
 
         {puzzle.answer &&
-          <Button id={`answer${puzzle.puzzleId}`} label="Answer" content={puzzle.answer} />
+          <Button id={`answer${puzzle.puzzleId}`} label="Answer" content={
+            <span className="one-liner"><ComponentToDisplayMarkdown markdown={puzzle.answer} /></span>
+          } />
         }
 
         {puzzle.solution &&
           <Button id={`solution${puzzle.puzzleId}`} label="Solution" content={
             <>
-              {puzzle.solution}
+              <ComponentToDisplayMarkdown markdown={puzzle.solution} />
               {puzzle.solutionImage &&
                 <img src={`/puzzle-images/${puzzle.solutionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'marginLeft': 'auto', 'marginRight': 'auto' }} alt={`SolutionImage ${puzzle.puzzleId}`} />
               }
