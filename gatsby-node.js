@@ -13,7 +13,7 @@
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
-    type PuzzlesJson implements Node @infer {
+    type PuzzlesYaml implements Node @infer {
       answer: String,
       title: String,
     }
@@ -26,7 +26,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
     query {
-      allPuzzlesJson {
+      allPuzzlesYaml {
         nodes {
           puzzleId
           category
@@ -39,7 +39,7 @@ exports.createPages = async function ({ actions, graphql }) {
 
 
   // Create a page for each puzzle
-  const puzzles = data.allPuzzlesJson.nodes;
+  const puzzles = data.allPuzzlesYaml.nodes;
   const puzzleCount = puzzles.length;
 
   console.log({"length": puzzleCount})

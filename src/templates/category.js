@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 
 export const query = graphql`
 query($category: String) {
-  allPuzzlesJson(filter: { category: { eq: $category } }) {
+  allPuzzlesYaml(filter: { category: { eq: $category } }) {
     nodes {
         puzzleId
         title
@@ -17,7 +17,7 @@ query($category: String) {
 `
 
 export default function Cateogry({ data, pageContext }) {
-  const puzzles = data.allPuzzlesJson.nodes
+  const puzzles = data.allPuzzlesYaml.nodes
   const { category } = pageContext
   const baseRoute = `/puzzles/${category}`
 

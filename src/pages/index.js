@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
 const IndexPage = ({ data }) => {
-  const puzzles = data.allPuzzlesJson.nodes
+  const puzzles = data.allPuzzlesYaml.nodes
 
   return (
     <Layout id="wrapper">
@@ -109,7 +109,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allPuzzlesJson {
+    allPuzzlesYaml {
       nodes {
         puzzleId
         difficulty

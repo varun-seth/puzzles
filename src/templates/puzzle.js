@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 
 export const query = graphql`
   query($puzzleId: Int!) {
-    puzzlesJson(puzzleId: { eq: $puzzleId }) {
+    puzzlesYaml(puzzleId: { eq: $puzzleId }) {
       puzzleId
       difficulty
       category
@@ -43,7 +43,7 @@ const Button = ({ id, label, content, backgroundColor }) => {
 
 
 export default function Puzzle({ data, pageContext }) {
-  const puzzle = data.puzzlesJson
+  const puzzle = data.puzzlesYaml
   const { previousPuzzleRoute, nextPuzzleRoute, category, difficulty } = pageContext
   const [displayComments, setDisplayComments] = useState(false);
 
