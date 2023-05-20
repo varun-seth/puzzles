@@ -22,43 +22,44 @@ const IndexPage = ({ data }) => {
                 </div>
                 <h2 style={{ textAlign: 'center' }}>Select an Album</h2>
                 <div style={{ padding: '0px', margin: '0px', textAlign: 'center' }}>
-                  <Link to="/puzzles/easy" className="btn btn-greygreen btn-scalegrey activewhite">
+                  <span>
+                  
+                  <Link to="/puzzles/easy" className="btn btn-greygreen btn-scalegrey activewhite smooth">
                     <img src="/images/easy.png" alt=" " /> <br />
                     Easy Puzzles
                   </Link>
-                  <Link to="/puzzles/medium" className="btn btn-greyblue btn-scalegrey activewhite">
+                  <Link to="/puzzles/medium" className="btn btn-greyblue btn-scalegrey activewhite smooth">
                     <img src="/images/medium.png" alt=" " /> <br />
                     Medium Puzzles
                   </Link>
-                  <Link to="/puzzles/hard" className="btn btn-greyred btn-scalegrey activewhite">
+                  <Link to="/puzzles/hard" className="btn btn-greyred btn-scalegrey activewhite smooth">
                     <img src="/images/hard.png" alt=" " /> <br />
                     Hard Puzzles
                   </Link>
+              
+                  </span>
+                  <span>
 
-                  <div style={{ padding: '0px', margin: '0px', display: 'inline-block' }}>
-                    <div style={{ padding: '0px', margin: '0px', display: 'inline-block' }}>
 
+                  <Link to="/puzzles/discrete" className="btn btn-grey1 btn-scalegrey activewhite smooth">
+                    <img src="/images/discrete.png" alt=" " /> <br />
+                    Discrete Maths
+                  </Link>
+                  <Link to="/puzzles/probability" className="activewhite btn btn-grey2 btn-scalegrey smooth" >
+                    <img alt=" " src="/images/probability.png" /> <br />
+                    Probability Puzzles
+                  </Link>
 
-                      <Link to="/puzzles/discrete" className="activewhite btn btn-grey1 btn-scalegrey smooth" style={{ padding: 'auto', textAlign: 'center' }}>
-                        <img src="/images/discrete.png" alt=" " /> <br />
-                        Discrete Maths
-                      </Link>
-                      <Link to="/puzzles/probability" className="activewhite btn btn-grey2 btn-scalegrey smooth" style={{ padding: 'auto', textAlign: 'center' }}>
-                        <img alt=" " src="/images/probability.png" height="80" /> <br />
-                        Probability Puzzles
-                      </Link>
-                    </div>
-                    <div style={{ padding: '0px', margin: '0px', display: 'inline-block' }}>
-                      <Link to="/puzzles/strategy" className="activewhite btn btn-grey3 btn-scalegrey smooth" style={{ padding: 'auto', textAlign: 'center' }}>
-                        <img alt=" " src="/images/strategy.png" height="80" /> <br />
-                        Strategy Puzzles
-                      </Link>
-                      <a href="/puzzles/general" className="activewhite btn btn-grey4 btn-scalegrey smooth" style={{ padding: 'auto', textAlign: 'center' }}>
-                        <img alt=" " src="/images/general.png" height="80" /> <br />
-                        General Tricks
-                      </a>
-                    </div>
-                  </div>
+                  <Link to="/puzzles/strategy" className="activewhite btn btn-grey3 btn-scalegrey smooth" >
+                    <img alt=" " src="/images/strategy.png" /> <br />
+                    Strategy Puzzles
+                  </Link>
+                  <Link to="/puzzles/general" className="activewhite btn btn-grey4 btn-scalegrey smooth" >
+                    <img alt=" " src="/images/general.png" /> <br />
+                    General Tricks
+                  </Link>
+                  </span>
+
                 </div>
                 <br /><br />
               </div>

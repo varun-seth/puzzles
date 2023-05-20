@@ -823,16 +823,7 @@ input[type='text'] {
   color: var(--color-background);
 }
 
-.btn-scalegrey {
-  font-size: 1em;
-  display: inline-block;
-  padding: 5px;
-}
 
-.btn-scalegrey img {
-  height: 40px;
-  width: 40px;
-}
 
 .btn-grey1 {
   background: #da5883
@@ -888,6 +879,17 @@ input[type='text'] {
   margin: 2px
 }
 
+.btn-scalegrey {
+  font-size: 1em;
+  display: inline-block;
+  padding: 5px;
+}
+
+.btn-scalegrey img {
+  height: 40px;
+  width: 40px;
+}
+
 @media(min-width:600px) {
 
   .easymediumhard {
@@ -901,10 +903,7 @@ input[type='text'] {
     background: #ccc;
   }
 
-  .btn-scalegrey img {
-    height: 80px;
-    width: 80px;
-  }
+
 
   .link-easy {
     padding: 10px 15px 11px;
@@ -935,13 +934,6 @@ input[type='text'] {
   }
 
 
-
-  .btn-scalegrey {
-    font-size: 1.1em;
-    background: #808080;
-    padding: 10px
-  }
-
   .btn-greyred {
     padding: 1em;
   }
@@ -966,6 +958,17 @@ input[type='text'] {
     font-size: 1.1em;
     margin: 5px;
   }
+
+  .btn-scalegrey {
+    font-size: 1.1em;
+    background: #808080;
+    padding: 10px
+  }
+  .btn-scalegrey img {
+    height: 80px;
+    width: 80px;
+  }
+
 
 }
 
