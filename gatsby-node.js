@@ -10,27 +10,18 @@
 
 
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
-  const typeDefs = `
-    type PuzzlesYaml implements Node @infer {
-      answer: String,
-      title: String,
-    }
-  `;
-  createTypes(typeDefs);
-}
-
-
-
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
     query {
-      allPuzzlesYaml {
-        nodes {
-          puzzleId
-          category
-          difficulty
+      allMarkdownRemark(
+        sort: { fields: frontmatter___puzzleId, order: ASC },
+      ) {
+          nodes {
+            frontmatter{
+            puzzleId
+            category
+            difficulty
+          }
         }
       }
     }
@@ -39,7 +30,7 @@ exports.createPages = async function ({ actions, graphql }) {
 
 
   // Create a page for each puzzle
-  const puzzles = data.allPuzzlesYaml.nodes;
+  const puzzles = data.allMarkdownRemark.nodes.map((node) => node.frontmatter);
   const puzzleCount = puzzles.length;
 
   console.log({ "length": puzzleCount })

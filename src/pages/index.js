@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
 const IndexPage = ({ data }) => {
-  const puzzles = data.allPuzzlesYaml.nodes
+  const puzzles = data.allMarkdownRemark.nodes.map((node) => node.frontmatter);
 
   return (
     <Layout id="wrapper">
@@ -118,12 +118,16 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allPuzzlesYaml {
+    allMarkdownRemark (
+      sort: { fields: frontmatter___puzzleId, order: ASC },
+    ){
       nodes {
-        puzzleId
-        difficulty
-        category
-        title
+        frontmatter {
+          puzzleId
+          difficulty
+          category
+          title
+        }
       }
     }
   }

@@ -36,14 +36,6 @@ module.exports = {
         path: `${__dirname}/src/data/puzzles`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: `${__dirname}/src/data/puzzles.yaml`,
-      },
-    },
-    `gatsby-transformer-yaml`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-react-helmet',
