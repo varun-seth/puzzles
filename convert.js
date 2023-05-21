@@ -16,16 +16,16 @@ category: "${puzzle.category}"
 ---
 
 ## Question
-${puzzle.question}
+${puzzle.question || ''}
 
 ## Hint
-${puzzle.hint}
+${puzzle.hint || ''}
 
 ## Answer
-${puzzle.answer}
+${puzzle.answer || ''}
 
 ## Solution
-${puzzle.solution}
+${puzzle.solution || ''}
 `;
       fs.writeFileSync(filePath, content);
     });

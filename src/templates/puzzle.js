@@ -39,6 +39,12 @@ const splitContent = (htmlContent) => {
     else if (section === 'Solution') solution = content;
   }
 
+  if (question && question.trim() === '') { question = undefined };
+  if (hint && hint.trim() === '') { hint = undefined };
+  if (answer && answer.trim() === '') { answer = undefined };
+  if (solution && solution.trim() === '') { solution = undefined };
+
+  // console.log({ question, hint, answer, solution });
   return { question, hint, answer, solution };
 }
 
