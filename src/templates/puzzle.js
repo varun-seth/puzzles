@@ -5,9 +5,7 @@ import { Helmet } from "react-helmet";
 import Button from '../components/Button';
 import FacebookComments from '../components/FacebookComments';
 
-import ReactMarkdown from 'react-markdown'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
+
 import 'katex/dist/katex.min.css'; // important: this styles the math output
 
 
@@ -136,14 +134,12 @@ export default function Puzzle({ data, pageContext }) {
 
         {hint &&
           <Button id={`hint${puzzle.puzzleId}`} label="Hint" content={
-            // <span className="one-liner"><ComponentToDisplayMarkdown markdown={puzzle.hint} /></span>
             <div className="one-liner" dangerouslySetInnerHTML={{ __html: hint }} />
           } />
         }
 
         {answer &&
           <Button id={`answer${puzzle.puzzleId}`} label="Answer" content={
-            // <span className="one-liner"><ComponentToDisplayMarkdown markdown={puzzle.answer} /></span>
             <div className="one-liner" dangerouslySetInnerHTML={{ __html: answer }} />
           } />
         }

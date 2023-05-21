@@ -118,9 +118,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark (
-      sort: { fields: frontmatter___puzzleId, order: ASC },
-    ){
+    allMarkdownRemark(sort: {frontmatter: {puzzleId: ASC}}){
       nodes {
         frontmatter {
           puzzleId

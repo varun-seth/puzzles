@@ -6,8 +6,8 @@ import { Helmet } from "react-helmet";
 export const query = graphql`
 query($category: String) {
   allMarkdownRemark(
-    sort: { fields: frontmatter___puzzleId, order: ASC },
-    filter: { frontmatter: { category: { eq: $category } } }
+    sort: {frontmatter: {puzzleId: ASC}}
+    filter: {frontmatter: {category: {eq: $category}}}
   ) {
     nodes {
       frontmatter {

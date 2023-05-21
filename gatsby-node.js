@@ -13,9 +13,7 @@
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
     query {
-      allMarkdownRemark(
-        sort: { fields: frontmatter___puzzleId, order: ASC },
-      ) {
+      allMarkdownRemark(sort: {frontmatter: {puzzleId: ASC}}) {
           nodes {
             frontmatter{
             puzzleId
