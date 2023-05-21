@@ -897,3 +897,9 @@ input[type='text'] {
 
 
 }
+
+
+.gatsby-resp-image-background-image {
+  /* gatsby shows blurry images.*/
+  opacity: 0 !important;
+}

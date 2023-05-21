@@ -25,10 +25,21 @@ module.exports = {
         plugins: [
           `gatsby-remark-katex`,
           // ... other plugins
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 200, // Adjust this value to control the image width
+              backgroundColor: 'transparent', // Set the background color to 'transparent'
+              withWebp: false, // This will disable the generation of WebP versions of the images
+              loading: "eager", // This will load the image as soon as possible
+              quality: 100, // This will set the quality of the image to the highest possible
+              placeholder: "none", // This will remove the placeholder completely
+              linkImagesToOriginal: false,
+            },
+          },
         ],
       },
     },
-    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
