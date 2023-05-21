@@ -11,16 +11,63 @@ import rehypeKatex from 'rehype-katex'
 import 'katex/dist/katex.min.css'; // important: this styles the math output
 
 
+const parseMarkdown = (markdown) => {
+  const parts = [];
+  let currentText = '';
 
-const ComponentToDisplayMarkdown = ({ markdown }) => (
-  <ReactMarkdown
-    children={markdown}
-    remarkPlugins={[remarkMath]}
-    rehypePlugins={[rehypeKatex]}
-  />
-);
+  const lines = markdown.split('\n');
+  for (const line of lines) {
+    const buttonMatch = line.match(/\[\[button: ([^\]]+)\]\]/);
+    if (buttonMatch) {
+      if (currentText) {
+        parts.push(currentText);
+        currentText = '';
+      }
+      parts.push({
+        type: 'button',
+        content: buttonMatch[1]
+      });
+    } else {
+      currentText += line + '\n';
+    }
+  }
 
+  if (currentText) {
+    parts.push(currentText);
+  }
 
+  return parts;
+};
+
+const ComponentToDisplayMarkdown = ({ markdown }) => {
+  const parts = parseMarkdown(markdown);
+
+  return parts.map((part, index) => {
+    if (typeof part === 'string') {
+      return (
+        <ReactMarkdown
+          key={index}
+          children={part}
+          remarkPlugins={[remarkMath]}
+          rehypePlugins={[rehypeKatex]}
+        />
+      );
+    } else {
+      return (
+        // <Button key={index} id={`button${index}`} label="Expand" content={part.content} />
+        <Button
+          key={index}
+          id={`button${index}`}
+          label="Expand"
+          content={
+            <ComponentToDisplayMarkdown markdown={part.content} />
+          }
+        />
+
+      );
+    }
+  });
+};
 
 
 
