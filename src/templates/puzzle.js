@@ -11,87 +11,55 @@ import rehypeKatex from 'rehype-katex'
 import 'katex/dist/katex.min.css'; // important: this styles the math output
 
 
-const parseMarkdown = (markdown) => {
-  const parts = [];
-  let currentText = '';
-
-  const lines = markdown.split('\n');
-  for (const line of lines) {
-    const buttonMatch = line.match(/\[\[button: ([^\]]+)\]\]/);
-    if (buttonMatch) {
-      if (currentText) {
-        parts.push(currentText);
-        currentText = '';
-      }
-      parts.push({
-        type: 'button',
-        content: buttonMatch[1]
-      });
-    } else {
-      currentText += line + '\n';
-    }
-  }
-
-  if (currentText) {
-    parts.push(currentText);
-  }
-
-  return parts;
-};
-
-const ComponentToDisplayMarkdown = ({ markdown }) => {
-  const parts = parseMarkdown(markdown);
-
-  return parts.map((part, index) => {
-    if (typeof part === 'string') {
-      return (
-        <ReactMarkdown
-          key={index}
-          children={part}
-          remarkPlugins={[remarkMath]}
-          rehypePlugins={[rehypeKatex]}
-        />
-      );
-    } else {
-      return (
-        // <Button key={index} id={`button${index}`} label="Expand" content={part.content} />
-        <Button
-          key={index}
-          id={`button${index}`}
-          label="Expand"
-          content={
-            <ComponentToDisplayMarkdown markdown={part.content} />
-          }
-        />
-
-      );
-    }
-  });
-};
-
-
-
 export const query = graphql`
   query($puzzleId: Int!) {
-    puzzlesYaml(puzzleId: { eq: $puzzleId }) {
-      puzzleId
-      difficulty
-      category
-      title
-      question
-      questionImage
-      hint
-      answer
-      solution
-      solutionImage
+    markdownRemark(frontmatter: { puzzleId: { eq: $puzzleId } }) {
+      html
+      frontmatter {
+        puzzleId
+        difficulty
+        category
+        title
+      }
     }
   }
 `
 
+const splitContent = (htmlContent) => {
+  const parts = htmlContent.split(/<h2>(.*?)<\/h2>/);
+  let question, hint, answer, solution;
+
+  for (let i = 1; i < parts.length; i += 2) {
+    const section = parts[i];
+    const content = parts[i + 1];
+
+    if (section === 'Question') question = content;
+    else if (section === 'Hint') hint = content;
+    else if (section === 'Answer') answer = content;
+    else if (section === 'Solution') solution = content;
+  }
+
+  return { question, hint, answer, solution };
+}
+
+
 
 
 export default function Puzzle({ data, pageContext }) {
-  const puzzle = data.puzzlesYaml
+  // const puzzleNode = data.allMarkdownRemark.edges[0].node;  // The first node matched by the query
+
+  // const puzzle = data.allMarkdownRemark.edges[0].node.frontmatter
+  // const rawMarkdown = data.allMarkdownRemark.edges[0].node.body;
+  // const html = puzzleNode.html; // HTML content
+  // const puzzle = puzzleNode.frontmatter; // Metadata
+  const puzzle = data.markdownRemark.frontmatter
+  const rawMarkdownBody = data.markdownRemark.html
+
+  console.log({ rawMarkdownBody })
+
+  const { question, hint, answer, solution } = splitContent(rawMarkdownBody);
+
+
   const { previousPuzzleRoute, nextPuzzleRoute, category, difficulty } = pageContext
 
   useEffect(() => {
@@ -149,31 +117,39 @@ export default function Puzzle({ data, pageContext }) {
           </tbody>
         </table>
 
-        {puzzle.question && <div className="content-text" style={{ marginTop: `1em`, marginBottom: `1em` }}>
-          <ComponentToDisplayMarkdown markdown={puzzle.question} />
+
+        {/* <MDXRenderer>{puzzleNode.body}</MDXRenderer> */}
+        {/* <div dangerouslySetInnerHTML={{ __html: rawMarkdownBody }} /> */}
+
+        {question && <div className="content-text" style={{ marginTop: `1em`, marginBottom: `1em` }}>
+          {/* <ComponentToDisplayMarkdown markdown={rawMarkdownBody} /> */}
+          <div dangerouslySetInnerHTML={{ __html: question }} />
         </div>}
 
         {puzzle.questionImage && <img src={`/puzzle-images/${puzzle.questionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'marginLeft': 'auto', 'marginRight': 'auto' }} alt={`QuestionImage ${puzzle.puzzleId}`} />}
 
-        {puzzle.hint &&
+        {hint &&
           <Button id={`hint${puzzle.puzzleId}`} label="Hint" content={
-            <span className="one-liner"><ComponentToDisplayMarkdown markdown={puzzle.hint} /></span>
+            // <span className="one-liner"><ComponentToDisplayMarkdown markdown={puzzle.hint} /></span>
+            <div className="one-liner" dangerouslySetInnerHTML={{ __html: hint }} />
           } />
         }
 
-        {puzzle.answer &&
+        {answer &&
           <Button id={`answer${puzzle.puzzleId}`} label="Answer" content={
-            <span className="one-liner"><ComponentToDisplayMarkdown markdown={puzzle.answer} /></span>
+            // <span className="one-liner"><ComponentToDisplayMarkdown markdown={puzzle.answer} /></span>
+            <div className="one-liner" dangerouslySetInnerHTML={{ __html: answer }} />
           } />
         }
 
-        {puzzle.solution &&
+        {solution &&
           <Button id={`solution${puzzle.puzzleId}`} label="Solution" content={
             <>
-              <ComponentToDisplayMarkdown markdown={puzzle.solution} />
+              {/* <ComponentToDisplayMarkdown markdown={puzzle.solution} />
               {puzzle.solutionImage &&
                 <img src={`/puzzle-images/${puzzle.solutionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'marginLeft': 'auto', 'marginRight': 'auto' }} alt={`SolutionImage ${puzzle.puzzleId}`} />
-              }
+              } */}
+              <div dangerouslySetInnerHTML={{ __html: solution }} />
             </>
           } />
         }

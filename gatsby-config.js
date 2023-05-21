@@ -16,7 +16,26 @@ module.exports = {
     siteUrl: `https://brainstellar.com/`,
   },
   plugins: [
+    // `gatsby-plugin-mdx`,
+    `gatsby-remark-katex`,
+    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-katex`,
+          // ... other plugins
+        ],
+      },
+    },
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data2`,
+        path: `${__dirname}/src/data/puzzles`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -28,10 +47,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-react-helmet',
-    // removed gatsby-plugin-offline due to development issues with service wokers
-    // many pages were giving error "ERR_FAILED" (not 404)
-    // resolved by unregistering service worker in chrome dev tools
-    // Do not add gatsby-plugin-offline again without a thorough test
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
