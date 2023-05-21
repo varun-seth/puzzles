@@ -10,10 +10,11 @@
       Does rolling the barrel (shuffling) before next shot increase the probability of firing a bullet?",
     "questionImage": "rolling_bullet.png",
     "hint": "Since the bullets are loaded consecutively, the next shot is also constrained.",
-    "answer": "Yes, shuffling increases the probability of firing a bullet.",
+    "answer": "Yes, shuffling increases the probability of firing a bullet from $25\\%$ to $33.\\bar{3}\\%$)",
     "solution": "
-      If the two bullets are randomly put instead of consecutively, then, after firing one empty shot, there are $2$ bullets and $5$ total slots. The probability would be $2/5 = 40\\%$, but that's not the case here.\n
-      Actually, the probability of firing a bullet without a shuffle is $1\/4 = 25\\%$. To understand this, imagine that the firing pin was on one of the empty slots $(3, 4, 5, 6)$, and the first shot was taken, but no bullet was fired. Now assumming that the barrel rotates clockwise, the pin will move to one of these slots: $(2, 3, 4, 5)$. Out of these four slots, only the slot $(1)$ has a bullet. Hence probability of firing a bullet is $1\/4 = 25\\%$.\n
+      **Initial Misstep**: If the two bullets are randomly put instead of consecutively, then, after firing one empty shot, there are $2$ bullets and $5$ total slots. The probability would be $2/5 = 40\\%$, but that's not the case here.
+      \n\n
+      **Correct step**: The probability of firing a bullet without a shuffle is $1\/4 = 25\\%$. To understand this, imagine that the firing pin was on one of the empty slots $(3, 4, 5, 6)$, and the first shot was taken, but no bullet was fired. Now assumming that the barrel rotates clockwise, the pin will move to one of these slots: $(2, 3, 4, 5)$. Out of these four slots, only the slot $(1)$ has a bullet. Hence probability of firing a bullet is $1\/4 = 25\\%$.\n
       Note that the same is true in anti-clockwise direction.\n\n
       After the shuffle, the state is reset. There are $6$ total slots with $2$ bullets, the probabilty of firing a bullet after a shuffle is $2/6 = 1/3 \\approx 33\\% $.\n\n
       Thus, shuffling does increase the probability of firing a bullet (from $25\\%$ to $33\\%$)\n\n
@@ -36,7 +37,7 @@
     "answer": "Coin distribution is: (98, 0, 1, 0, 1) from levels (5, 4, 3, 2, 1) respectively",
     "solution": "
       Let the pirates be called P5, P4, P3, P2, P1. P5 is the leader.\n\n
-      Let's study a simpler cases. So what happens if there are only 2 pirates. P2 can propose to take all the 100 gold coins. Even if P1 votes against this, P2 will vote in favor and the proposal will still be accepted (50\\% acceptance) leaving P1 with zero coins. The distribution is (100, 0) for levels (2, 1) respectively.\n\n
+      Let's study a simpler case with only 2 pirates. P2 can propose to take all the 100 gold coins. Even if P1 votes against this, P2 will vote in favor and the proposal will still be accepted (50\\% acceptance) leaving P1 with zero coins. The distribution is (100, 0) for levels (2, 1) respectively.\n\n
       Now let's look at the case with 3 pirates. P3 knows that if this proposal is not accepted, then P2 will get all the gold and P1 will get nothing. So P3 can bribe P1 with one gold coin. P1 knows that one gold coin is better than zero, and hence votes in favor of this proposal. Therefore, P3 can propose the following distribution {Level 3 pirate: 99, Level-2: 0, Level-3: 1}. Since pirate 1 and 3 will vote in favor, this proposal will be accepted. The distribution is (99, 0, 1) for levels (3, 2, 1) respectively.\n\n
       If there are 4 pirates, P4 can extend this pattern by bribing those who would get nothing in 3-pirates case, to ensure their votes. So the distribution will be (99, 0, 1, 0) for levels (4, 3, 2, 1) respectively, this will ensure that P2 will vote in favor and with the help of self voting (P4), we have 50\\% votes to accept this proposal.\n\n
       Similarly, P5 can bribe P3 and P1 pirates because they get nothing if the proposal is rejected, as P4 was giving them nothing. Hence, at level-5, the proposal is (98, 0, 1, 0, 1). This proposal will get accepted and provide the maximum amount of gold to the leader.\n\n
@@ -627,7 +628,6 @@
     "category": "discrete",
     "source": "Top Quant Interview",
     "question": "On a 2D complex plane, all the integer-component points are coloured either White or Black. Is Possible to find a rectangle parallel to axis which has all corners of same color?",
-    "solution": "asd",
   },
   {
     "puzzleId": 127,
@@ -769,9 +769,14 @@
     "difficulty": "hard",
     "category": "probability",
     "source": "Quant Interview",
-    "question": "x & y are two random points selected uniformly between 0 & 1. Using them, create a point uniformly random in circle of radius 1. (uniform means that the probability density is constant)",
-    "hint": "Suppose x & y are outcomes of blackbox. [ x*cos(2 pi y) , x* cos(2 pi y) ] is not a uniform point on disc. Neither is the point (x,y)\/sqrt(x^2+y^2) uniform.",
-    "solution": " theta = 2pi*x and r = squareroot(y). the take the point as (r*cos(theta),r*sin(theta))\nExplanation:\nThe idea is that the probability of a point to be between r and r+dr is 2pi*r*dr. Hence to choose a radius we need to generate a number from random number generator which follows probability distribution 2*r.To generate random number which follows above probability distribution which follows uniform distribution we simply take the square root of the number generated by uniform distribution.",
+    "question": "$x$ & $y$ are two random points selected uniformly between $0$ & $1$. Using them, create a point uniformly random in circle of radius $1$. (uniform means that the probability density is constant)",
+    "hint": "Let  $r=\\sqrt{(x^2+y^2)}$; the point $(x/r, y/r)$ is not uniformly distributed on the disk.",
+    "answer": " $\\theta = 2 \\pi x$ and $r = \\sqrt{y}$, then take the point as $(r \\cos(\\theta),r \\sin(\\theta))$",
+    "solution": "
+      The idea is that the probability of a point to be between $r$ and $(r+ d r)$ is $2 \\pi \\cdot r \\cdot d r$. Hence to choose a radius we need to generate a number from random number generator which follows the probability distribution $2 \\cdot r$.\n\n
+      To generate a random number which follows above probability from a uniform distribution we simply take the square root of the number generated by uniform distribution.
+      Hence, $\\theta = 2 \\pi x$ and $r = \\sqrt{y}$, then take the point as $(r \\cos(\\theta),r \\sin(\\theta))$
+      ",
   },
   {
     "puzzleId": 211,
@@ -870,11 +875,10 @@
   {
     "puzzleId": 221,
     "title": "Game of Divisors",
-    "difficulty": "hard",
+    "difficulty": "deadly",
     "category": "strategy",
     "source": "Krishnamurthy Iyer",
-    "question": "Two immensely intelligent players, A & B, engage in a game, the rules of which are as follows. For some natural number N, the board consists of numbers from 1 to N. Each player takes turns to strike off a (new) number from the board. But, to make sure N does't affect who wins, there is an added rule. Once you strike of a number, you also have to strike off all its divisors in that same chance, irrespective of whether any of those divisors were already marked. The player to strike off the last number on the board wins. Can A construct a winning strategy?",
-    "solution": " ",
+    "question": "Two immensely intelligent players, A & B, engage in a game, the rules of which are as follows. For some natural number N, the board consists of numbers from 1 to N. Each player takes turns to strike off a (new) number from the board. But, to make sure N doesn't affect who wins, there is an added rule. Once you strike of a number, you also have to strike off all its divisors in that same chance, irrespective of whether any of those divisors were already marked. The player to strike off the last number on the board wins. Can A construct a winning strategy?",
   },
   {
     "puzzleId": 222,
