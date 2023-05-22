@@ -33,7 +33,6 @@ module.exports = {
               withWebp: false, // This will disable the generation of WebP versions of the images
               loading: "eager", // This will load the image as soon as possible
               quality: 100, // This will set the quality of the image to the highest possible
-              placeholder: "none", // This will remove the placeholder completely
               linkImagesToOriginal: false,
             },
           },
