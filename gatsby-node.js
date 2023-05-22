@@ -132,3 +132,35 @@ exports.createPages = async function ({ actions, graphql }) {
     component: require.resolve(`./src/pages/index.js`),
   });
 };
+
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.drawio\.png$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[ext]',
+              },
+            },
+          ],
+        },
+        {
+          test: /\.drawio\.svg$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[ext]',
+              },
+            },
+          ],
+        },
+      ],
+    },
+  })
+}
