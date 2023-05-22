@@ -59,8 +59,6 @@ export default function Puzzle({ data, pageContext }) {
   const puzzle = data.markdownRemark.frontmatter
   const rawMarkdownBody = data.markdownRemark.html
 
-  console.log({ rawMarkdownBody })
-
   const { question, hint, answer, solution } = splitContent(rawMarkdownBody);
 
 
@@ -69,7 +67,6 @@ export default function Puzzle({ data, pageContext }) {
   useEffect(() => {
     document.querySelectorAll('.push').forEach(button => {
       button.addEventListener('click', function () {
-        console.log({ id: this.id });
         const content = document.getElementById(this.id.replace('Button', ''))
         if (content) {
           const isHidden = content.classList.contains('hidden')
