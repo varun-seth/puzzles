@@ -31,7 +31,7 @@ body {
 body,
 textarea,
 input {
-  font: 13px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+  font: 15px/18px Verdana, sans-serif;
   margin: 0;
   border-radius: 0;
   background: 0;
