@@ -16,13 +16,13 @@ const IndexPage = ({ data }) => {
         <div className="stylishpage" style={{ padding: '0px', marginBottom: '5px' }}>
           <div className="bord1" style={{ margin: '0px', padding: '0px' }}>
             <div className="bord2" style={{ margin: '0px', padding: '0px' }}>
-              <div style={{}}>
+              <div className="container" style={{}}>
                 <div style={{ padding: '0px', margin: '0px', textAlign: 'center' }}>
                   <div className="easymediumhard" style={{ padding: '0px', margin: '0px', textAlign: 'center' }}></div>
                 </div>
                 <h2 style={{ textAlign: 'center' }}>Select an Album</h2>
                 <div style={{ padding: '0px', margin: '0px', textAlign: 'center' }}>
-                  <span>
+                  <span style={{ display: `inline-block` }}>
 
                     <Link to="/puzzles/easy" className="btn btn-greygreen btn-scalegrey activewhite smooth">
                       <img src="/images/easy.png" alt=" " /> <br />
@@ -38,7 +38,7 @@ const IndexPage = ({ data }) => {
                     </Link>
 
                   </span>
-                  <span>
+                  <span style={{ display: `inline-block` }}>
 
 
                     <Link to="/puzzles/discrete" className="btn btn-grey1 btn-scalegrey activewhite smooth">
@@ -69,7 +69,7 @@ const IndexPage = ({ data }) => {
 
 
 
-        <div className="stylishpage"> <div className="bord1"><div className="bord2">
+        <div className="stylishpage"> <div className="bord1"><div className="bord2"><div className="container">
           <h2>All Puzzles</h2>
           {/* This section has all puzzles ordered from oldest to newest. This is the order I discovered them in. */}
 
@@ -78,7 +78,7 @@ const IndexPage = ({ data }) => {
               <Link to={`/puzzles/${puzzle.puzzleId}`} className={`btn btn-sm link-${puzzle.difficulty} smooth`}>{puzzle.title}</Link>
             </span>
           ))}
-        </div></div></div>
+        </div></div></div></div>
 
         <div className="stylishpage">
           <div className="bord1" style={{ margin: 0, padding: 0 }}>
