@@ -28,11 +28,11 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 200, // Adjust this value to control the image width
-              backgroundColor: 'transparent', // Set the background color to 'transparent'
-              withWebp: false, // This will disable the generation of WebP versions of the images
-              loading: "eager", // This will load the image as soon as possible
-              quality: 100, // This will set the quality of the image to the highest possible
+              maxWidth: 200,
+              backgroundColor: 'transparent',
+              withWebp: false,
+              loading: "eager",
+              quality: 100,
               linkImagesToOriginal: false,
             },
           },
@@ -56,12 +56,10 @@ module.exports = {
         short_name: `BRAINSTELLAR`,
         start_url: `/`,
         background_color: `#a8323c`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        theme_color: `#663399`,
         display: `standalone`,
-        icon: `src/images/logo.png`, // This path is relative to the root of the site.
-        include_favicon: false, // This will exclude favicon from the generated manifest file
+        icon: `src/images/logo.png`,
+        include_favicon: false,
       },
     },
   ],
