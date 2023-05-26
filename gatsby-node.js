@@ -37,6 +37,12 @@ exports.createPages = async function ({ actions, graphql }) {
 
   const difficultiesSet = new Set();
 
+
+  // Extracting list of categories
+  const categories = Array.from(new Set(puzzles.map(puzzle => puzzle.category)));
+  const difficulties = Array.from(new Set(puzzles.map(puzzle => puzzle.difficulty)));
+
+
   puzzles.forEach((puzzle, index) => {
     categoriesSet.add(puzzle.category);
     difficultiesSet.add(puzzle.difficulty);
@@ -85,20 +91,23 @@ exports.createPages = async function ({ actions, graphql }) {
       },
     });
 
-    // Difficulty puzzle page
-    actions.createPage({
-      path: `puzzles/${puzzle.difficulty}/${puzzle.puzzleId}`,
-      component: require.resolve(`./src/templates/puzzle.js`),
-      context: {
-        puzzleId: puzzle.puzzleId,
-        previousPuzzleRoute: previousDifficultyPuzzleId ? `/puzzles/${puzzle.difficulty}/${previousDifficultyPuzzleId}` : null,
-        nextPuzzleRoute: nextDifficultyPuzzleId ? `/puzzles/${puzzle.difficulty}/${nextDifficultyPuzzleId}` : null,
-        difficulty: puzzle.difficulty,
-      },
+    difficulties.forEach((difficulty) => {
+      // Difficulty puzzle page
+      actions.createPage({
+        // allow old URL's to work even if the difficulty level gets changed later.
+        path: `puzzles/${difficulty}/${puzzle.puzzleId}`,
+        component: require.resolve(`./src/templates/puzzle.js`),
+        context: {
+          puzzleId: puzzle.puzzleId,
+          previousPuzzleRoute: previousDifficultyPuzzleId ? `/puzzles/${puzzle.difficulty}/${previousDifficultyPuzzleId}` : null,
+          nextPuzzleRoute: nextDifficultyPuzzleId ? `/puzzles/${puzzle.difficulty}/${nextDifficultyPuzzleId}` : null,
+          difficulty: puzzle.difficulty,
+        },
+      });
     });
+
   });
 
-  const categories = Array.from(categoriesSet);
   categories.forEach((category) => {
     // Category page
     actions.createPage({
@@ -110,7 +119,6 @@ exports.createPages = async function ({ actions, graphql }) {
     });
   });
 
-  const difficulties = Array.from(difficultiesSet);
   difficulties.forEach((difficulty) => {
     // Difficulty page
     actions.createPage({
