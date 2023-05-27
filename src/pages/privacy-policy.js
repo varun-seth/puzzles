@@ -27,6 +27,11 @@ const PrivacyPolicy = () => (
     <h2>Contact Us</h2>
 
     <p>If you have any questions about this Privacy Policy, please contact us at: BrainStellarPuzzles@facebook.com</p>
+
+    <h2>Facebook Comments</h2>
+
+    <p>The Facebook comments and other features can be individually enabled for each page. The user has to manually press the "Comments" buttons. The plugin is only loaded after it is enabled by the user. Before enabling, no request is made to the facebook's servers. So, we protect our users from being tracked by other services too.</p>
+
   </div>
 )
 
