@@ -1,12 +1,3 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
 module.exports = {
   trailingSlash: "never",
   siteMetadata: {
@@ -36,6 +27,7 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
+          `gatsby-remark-copy-linked-files`,
         ],
       },
     },
