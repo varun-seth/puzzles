@@ -131,14 +131,18 @@ export default function Puzzle({ data, pageContext }) {
 
         {hint &&
           <Button id={`hint${puzzle.puzzleId}`} label="Hint" content={
-            <div className="one-liner" dangerouslySetInnerHTML={{ __html: hint }} />
-          } />
+            <div dangerouslySetInnerHTML={{ __html: hint }} />
+          }
+            passClass="one-liner"
+          />
         }
 
         {answer &&
           <Button id={`answer${puzzle.puzzleId}`} label="Answer" content={
-            <div className="one-liner" dangerouslySetInnerHTML={{ __html: answer }} />
-          } />
+            <div passClass="one-liner" dangerouslySetInnerHTML={{ __html: answer }} />
+          }
+            passClass="one-liner"
+          />
         }
 
         {solution &&

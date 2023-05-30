@@ -23,11 +23,6 @@ body {
   color: var(--color-text);
 }
 
-.one-liner p {
-  margin: 0;
-  /*prevent paragraphs in markdown*/
-}
-
 body,
 textarea,
 input {
@@ -596,8 +591,16 @@ input[type='text'] {
   display: none;
 }
 
-.unhidden {
+.unhidden {}
+
+.one-liner {
   display: inline-block;
+}
+
+.one-liner p {
+  margin: 0;
+
+  /*prevent paragraphs in markdown*/
 }
 
 .around {
