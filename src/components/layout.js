@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet";
 
 import Header from "./header"
 import Footer from "./footer"
-import "./layout.css"
+// import "./layout.css"
 
 const MemoizedHeader = React.memo(Header);
 

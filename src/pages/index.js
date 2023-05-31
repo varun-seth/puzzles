@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
+// import * as styles from "../components/index.module.css"
 
 const IndexPage = ({ data }) => {
   const puzzles = data.allMarkdownRemark.nodes.map((node) => node.frontmatter);
@@ -11,7 +11,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout id="wrapper">
       <Seo title="Home" />
-      <div className={styles.textCenter}>
+      <div className={`textCenter`}>
 
         <div className="stylishpage" style={{ padding: '0px', marginBottom: '5px' }}>
           <div className="bord1" style={{ margin: '0px', padding: '0px' }}>
