@@ -2,9 +2,9 @@ module.exports = {
   trailingSlash: "never",
   siteMetadata: {
     title: `BRAINSTELLAR`,
-    description: `Puzzles website`,
+    description: `Deadly Puzzles`,
     author: `varun-seth`,
-    siteUrl: `https://brainstellar.com/`,
+    siteUrl: `https://brainstellar.com`,
   },
   plugins: [
     // `gatsby-plugin-mdx`,
@@ -48,9 +48,9 @@ module.exports = {
         short_name: `BRAINSTELLAR`,
         start_url: `/`,
         background_color: `#a8323c`,
-        theme_color: `#663399`,
+        theme_color: `#993333`,
         display: `standalone`,
-        icon: `src/images/logo.png`,
+        icon: `static/logo.png`,
         include_favicon: false,
       },
     },
