@@ -152,7 +152,7 @@ export default function Puzzle({ data, pageContext }) {
               {puzzle.solutionImage &&
                 <img src={`/puzzle-images/${puzzle.solutionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'marginLeft': 'auto', 'marginRight': 'auto' }} alt={`SolutionImage ${puzzle.puzzleId}`} />
               } */}
-              <div dangerouslySetInnerHTML={{ __html: solution }} />
+              <div class="solution" dangerouslySetInnerHTML={{ __html: solution }} />
             </>
           } />
         }

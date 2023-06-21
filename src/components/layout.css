@@ -913,3 +913,8 @@ input[type='text'] {
   line-height: 24px;
   font-weight: 400;
 }
+
+.solution a {
+  text-decoration: underline;
+  /* change this to your preferred color */
+}
