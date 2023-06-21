@@ -2,7 +2,7 @@ module.exports = {
   trailingSlash: "never",
   siteMetadata: {
     title: `BRAINSTELLAR`,
-    description: `Deadly Puzzles`,
+    description: `Puzzles from Quant Interviews`,
     author: `varun-seth`,
     siteUrl: `https://brainstellar.com`,
   },
