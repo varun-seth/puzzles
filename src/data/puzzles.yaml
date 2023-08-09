@@ -102,15 +102,6 @@
     "solution": "If there is 1 tiger, then it will eat the sheep because he does not need to worry about being eaten. Sheep will not survive.\nIf there are 2 tigers, both of them knows that if one eats the Sheep, the other tiger will eat him. So, the sheep will survive.\n\nIf there are 3 tigers, then they each of them knows that if one tiger eats up the sheep, then Iceland will be left with 1 sheep and 2 tigers and as shown in the previous case, the sheep will survive. Hence each tiger will try to eat up the sheep. The sheep will not survive.\n\nIf there are 4 tigers, then the sheep will survive.\n\nAnd so on….\n\nSo, If there are even number of tigers the sheep will survive, else it will die. Hence, if there are 100 tigers the sheep will survive.",
   },
   {
-    "puzzleId": 20,
-    "title": "Waiting for the Train",
-    "difficulty": "easy",
-    "category": "probability",
-    "question": "Spiderman has two girlfriends, Mary Jane & Gwen Stacy. After every mission, he rushes to the central subway. Since spidey is a nice man, much impartial, he takes which-ever train arrives first. From subway, one series go towards Mary's place, and another series move towards Stacy. Trains from either series appear every 10 minutes. Also, Peter Parker sticks with the train which arrives first. \nBut somehow, he notices that he is spending 9 times more dates with Mary Jane than Stacy. Can you explain why?\n",
-    "hint": "Do you think ratio should be 50:50? Do you think the gap between each train's arrival is 5 minutes? Can a train arrive always earlier than the other and still be at every 10 minutes gap?",
-    "solution": "Train to Mary Jane's place comes at say times 0 and 10, while the train to Stacy's place comes at times 1 and 11. So 9\/10 times, train to Mary Jane's place is appearing earlier.\n",
-  },
-  {
     "puzzleId": 21,
     "title": "2 Eggs",
     "difficulty": "easy",
