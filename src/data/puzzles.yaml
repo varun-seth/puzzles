@@ -112,16 +112,6 @@
     "solution": "The main point is that the final volumes of mixture liquids are equal. This means in jar A, volume of water + wine is same as that in jar B. Assume original volume as L. Suppose final volume in jar A is x for water and (L-x) for wine. This implies that jar B has x amount of wine and (L-x) of water. This proves that there are equal amounts of water in the wine jar and wine in the water jar. ",
   },
   {
-    "puzzleId": 18,
-    "title": "100 Light bulbs",
-    "difficulty": "easy",
-    "category": "general",
-    "question": "Light bulbs are numbered 1 to 100, and kept off initially. First person comes and toggles all the bulbs which are multiple of 1, i.e. he switches all bulbs to on. Second person toggles all multiples of 2, i.e he turns of even bulbs. Third person comes and toggles all multiples of 3. This process continues till 100 persons pass. After this, how many bulbs are  ON?",
-    "hint": "Consider the bulb number 9.",
-    "answer": "10 bulbs",
-    "solution": "We notice that for  a perfect square (like 9), the number of factors are always odd, for example:\nNumber of factors of (16) = # [1,2,4,8,16] = 5\nNote that for non-square numbers, factors are even. \n\nAs a factor toggles the state of a bulb, bulb number 9 will be toggled by 1,3 & 9.  Thus bulb number 9 will switch ON, OFF, ON respectively. Note that odd number of factors cause bulb 9 to be ON at the end.\n\nWe note that for odd number of factors is the cause of bulb staying on at the end. Similarly every squared digit bulb will be switched on, and rest will remain off after all factors toggle. Thus the bulbs 1,4,9....81,100 are ON, at the end. Hence 10 bulbs are on.",
-  },
-  {
     "puzzleId": 19,
     "title": "Getting fair result from unfair coin",
     "difficulty": "easy",
