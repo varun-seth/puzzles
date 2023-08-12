@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Repository Variable
-        run: |
-          echo "Pushing to : ${{ vars.PROD_USER }}/${{ vars.PROD_REPO }}"
-
       - name: Checkout Code
         uses: actions/checkout@v2
 
@@ -30,14 +26,29 @@ jobs:
 
       - name: Push build to main repo
         run: |
+          echo "Setting up git user configurations"
+
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
+
+          echo "Cloning main repository..."
+
           git clone --quiet https://${{ github.actor }}:${{ secrets.PROD_ACCESS_TOKEN }}@github.com/$PROD_USER/$PROD_REPO.git
+
+          echo "Copying built files to main repository..."
           cp -rf public/* $PROD_REPO/
           cd $PROD_REPO
+
+          echo "Adding changes to git..."
           git add .
-          git commit -m "Update puzzles component"
-          git push
+
+          FILE_COUNT=$(git status --short | wc -l)
+          echo "Committing ${FILE_COUNT} files..."
+          git commit --quiet -m "Update puzzles component"
+
+          echo "Pushing changes to the main repository..."
+          git push --quiet
+          echo "Process completed."
         env:
           PROD_REPO: ${{ vars.PROD_REPO }}
           PROD_USER: ${{ vars.PROD_USER }}
