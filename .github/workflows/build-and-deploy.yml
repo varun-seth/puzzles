@@ -33,14 +33,14 @@ jobs:
 
           echo "Cloning main repository..."
 
-          git clone --quiet https://${{ github.actor }}:${{ secrets.PROD_ACCESS_TOKEN }}@github.com/${{ vars.PROD_USER }}/${{ vars.PROD_REPO }}.git
+          git clone --quiet https://${{ github.actor }}:${{ secrets.PROD_ACCESS_TOKEN }}@github.com/${{ secrets.PROD_USER }}/${{ secrets.PROD_REPO }}.git prod_repo
 
           echo "Switching to gh-pages branch..."
-          cd ${{ vars.PROD_REPO }}
+          cd prod_repo
           git checkout gh-pages
 
           echo "Copying built files to main repository..."
-          cp -rf ../public/* ${{ vars.PROD_REPO }}/
+          cp -rf ../public/* ./
 
           echo "Adding changes to git..."
           git add .
