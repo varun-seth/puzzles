@@ -32,8 +32,8 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/$PROD_USER/$PROD_REPO.git
-          cp -r public/* $PROD_REPO
+          git clone --quiet https://${{ github.actor }}:${{ secrets.PROD_ACCESS_TOKEN }}@github.com/$PROD_USER/$PROD_REPO.git
+          cp -rf public/* $PROD_REPO/
           cd $PROD_REPO
           git add .
           git commit -m "Update puzzles component"
