@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Print Repository Variable
+        run: |
+          echo "Pushing to : ${{ vars.PROD_USER }}/${{ vars.PROD_REPO }}"
+
       - name: Checkout Code
         uses: actions/checkout@v2
 
@@ -34,3 +38,6 @@ jobs:
           git add .
           git commit -m "Update puzzles component"
           git push
+        env:
+          PROD_REPO: ${{ vars.PROD_REPO }}
+          PROD_USER: ${{ vars.PROD_USER }}
