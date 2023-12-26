@@ -1,0 +1,54 @@
+name: Build and Deploy to Main Repo
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Gatsby Site
+        run: npm run build
+
+      - name: Push build to main repo
+        run: |
+          echo "Setting up git user configurations"
+
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+
+          echo "Cloning main repository..."
+
+          git clone --quiet https://${{ github.actor }}:${{ secrets.PROD_ACCESS_TOKEN }}@github.com/${{ secrets.PROD_USER }}/${{ secrets.PROD_REPO }}.git prod_repo
+
+          echo "Switching to gh-pages branch..."
+          cd prod_repo
+          git checkout gh-pages
+
+          echo "Copying built files to main repository..."
+          cp -rf ../public/* ./
+
+          echo "Adding changes to git..."
+          git add .
+
+          FILE_COUNT=$(git status --short | wc -l)
+          echo "Committing ${FILE_COUNT} files..."
+          git commit --quiet -m "Update puzzles component"
+
+          echo "Pushing changes to the main repository..."
+          git push --quiet
+          echo "Process completed."

@@ -23,11 +23,6 @@ body {
   color: var(--color-text);
 }
 
-.one-liner p {
-  margin: 0;
-  /*prevent paragraphs in markdown*/
-}
-
 body,
 textarea,
 input {
@@ -596,8 +591,16 @@ input[type='text'] {
   display: none;
 }
 
-.unhidden {
+.unhidden {}
+
+.one-liner {
   display: inline-block;
+}
+
+.one-liner p {
+  margin: 0;
+
+  /*prevent paragraphs in markdown*/
 }
 
 .around {
@@ -909,4 +912,9 @@ input[type='text'] {
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
+}
+
+.solution a {
+  text-decoration: underline;
+  /* change this to your preferred color */
 }

@@ -4,6 +4,9 @@ import Layout from '../components/layout'
 import { Helmet } from "react-helmet";
 import Button from '../components/Button';
 import FacebookComments from '../components/FacebookComments';
+import Seo from '../components/seo';
+import he from 'he';
+import cheerio from 'cheerio';
 
 
 import 'katex/dist/katex.min.css'; // important: this styles the math output
@@ -47,6 +50,10 @@ const splitContent = (htmlContent) => {
 }
 
 
+const stripHtml = html => {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.textContent || "";
+}
 
 
 export default function Puzzle({ data, pageContext }) {
@@ -60,6 +67,11 @@ export default function Puzzle({ data, pageContext }) {
   const rawMarkdownBody = data.markdownRemark.html
 
   const { question, hint, answer, solution } = splitContent(rawMarkdownBody);
+
+  const $ = cheerio.load(question);
+  $("math").remove(); // Replace 'math' with the actual tag name for your LaTeX equations
+  let description = $.text();
+  description = he.decode(description);
 
 
   const { previousPuzzleRoute, nextPuzzleRoute, category, difficulty } = pageContext
@@ -85,6 +97,7 @@ export default function Puzzle({ data, pageContext }) {
 
   return (
     <Layout>
+      <Seo title={puzzle.title} description={description} />
       <Helmet>
         <link rel="icon" href="/favicon.gif" />
         <title>{puzzle.title} | Brainstellar Puzzles</title>
@@ -131,14 +144,18 @@ export default function Puzzle({ data, pageContext }) {
 
         {hint &&
           <Button id={`hint${puzzle.puzzleId}`} label="Hint" content={
-            <div className="one-liner" dangerouslySetInnerHTML={{ __html: hint }} />
-          } />
+            <div dangerouslySetInnerHTML={{ __html: hint }} />
+          }
+            passClass="one-liner"
+          />
         }
 
         {answer &&
           <Button id={`answer${puzzle.puzzleId}`} label="Answer" content={
-            <div className="one-liner" dangerouslySetInnerHTML={{ __html: answer }} />
-          } />
+            <div passClass="one-liner" dangerouslySetInnerHTML={{ __html: answer }} />
+          }
+            passClass="one-liner"
+          />
         }
 
         {solution &&
@@ -148,7 +165,7 @@ export default function Puzzle({ data, pageContext }) {
               {puzzle.solutionImage &&
                 <img src={`/puzzle-images/${puzzle.solutionImage}`} style={{ width: `200px`, height: 'auto', display: 'block', 'marginLeft': 'auto', 'marginRight': 'auto' }} alt={`SolutionImage ${puzzle.puzzleId}`} />
               } */}
-              <div dangerouslySetInnerHTML={{ __html: solution }} />
+              <div class="solution" dangerouslySetInnerHTML={{ __html: solution }} />
             </>
           } />
         }
