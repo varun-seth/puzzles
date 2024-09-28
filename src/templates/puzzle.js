@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import 'katex/dist/katex.min.css'; // important: this styles the math output
+import React, { useEffect } from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
 import { Helmet } from "react-helmet";
@@ -10,7 +11,6 @@ const cheerio = require('cheerio');
 
 
 
-import 'katex/dist/katex.min.css'; // important: this styles the math output
 
 
 export const query = graphql`
@@ -48,12 +48,6 @@ const splitContent = (htmlContent) => {
 
   // console.log({ question, hint, answer, solution });
   return { question, hint, answer, solution };
-}
-
-
-const stripHtml = html => {
-  const doc = new DOMParser().parseFromString(html, 'text/html');
-  return doc.body.textContent || "";
 }
 
 
