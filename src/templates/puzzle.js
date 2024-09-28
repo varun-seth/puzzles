@@ -6,7 +6,8 @@ import Button from '../components/Button';
 import FacebookComments from '../components/FacebookComments';
 import Seo from '../components/seo';
 import he from 'he';
-import cheerio from 'cheerio';
+const cheerio = require('cheerio');
+
 
 
 import 'katex/dist/katex.min.css'; // important: this styles the math output
@@ -69,6 +70,7 @@ export default function Puzzle({ data, pageContext }) {
   const { question, hint, answer, solution } = splitContent(rawMarkdownBody);
 
   const $ = cheerio.load(question);
+
   $("math").remove(); // Replace 'math' with the actual tag name for your LaTeX equations
   let description = $.text();
   description = he.decode(description);
